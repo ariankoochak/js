@@ -1,10 +1,7 @@
 let sum = 0
 let i
-while(true){
+while(i != 0){
     i = +prompt("enter number")
-    if(i != 0)
-        sum += i
-    else
-        break
+    sum += i
 }
 alert("sum : " + sum)

@@ -59,7 +59,5 @@ function PasswordGenerator() {
         Password += Full[i];
     }
     console.log(Password);
+    alert(Password);
 }
-
-
-PasswordGenerator();

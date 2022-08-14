@@ -1,3 +1,9 @@
-function opt_generator(){
-    alert("your opt : " + Math.round(Math.random() * 100000000))
+function otp_generator() {
+    let full_opt = "";
+    for (let i = 0; i < 8; i++) {
+        let j = String(Math.floor(Math.random() * 10));
+        full_opt += j;
+    }
+    return +full_opt;
 }
+console.log(otp_generator());

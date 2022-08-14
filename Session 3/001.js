@@ -1,7 +1,3 @@
-
-//let a = Math.floor(Math.random() * 100);
-
-
 function opt_generator(){
     let full = "";
     for(let i = 0;i < 8;i++){

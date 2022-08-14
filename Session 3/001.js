@@ -1,4 +1,4 @@
-function opt_generator(){
+function OptGenerator(){
     let full = "";
     for(let i = 0;i < 8;i++){
         let a = Math.floor(Math.random() * 26);
@@ -8,5 +8,5 @@ function opt_generator(){
     console.log(full);
 }
 
-opt_generator();
+OptGenerator();
 

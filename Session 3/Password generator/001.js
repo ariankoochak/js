@@ -45,10 +45,10 @@ function ArrayGenerator(){
     Full[6] = DiceAndSet();
     Full[7] = DiceAndSet();
     for (let i = 7; i > 0; i--) {
-        let j = Math.floor(Math.random() * i)
-        let k = Full[i]
-        Full[i] = Full[j]
-        Full[j] = k
+        let j = Math.floor(Math.random() * i);
+        let t = Full[i];
+        Full[i] = Full[j];
+        Full[j] = t;
     }
 }
 

@@ -44,7 +44,6 @@ function PassMaker(){
 }
 function shuffle(pass){
     pass = pass.split("")
-    debugger;
     for (let i = pass.length-1; i > 0; i--) {
         let j = Math.floor(Math.random() * i);
         let t = pass[i];
@@ -54,9 +53,6 @@ function shuffle(pass){
     return pass.join("");
 }
 function Mix(){
-    let pass =PassMaker();
-    let result = shuffle("123456");
-    debugger;
-    console.log("Final : " + Password);
+    console.log("Final : " + shuffle(PassMaker()));
 }
 Mix();

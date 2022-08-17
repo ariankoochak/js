@@ -4,7 +4,7 @@ img{
     
 }
 
-img:hover{
+div img:hover{
     cursor: pointer;
 }
 
@@ -19,7 +19,6 @@ img:hover{
 .box{
     margin: auto;
 }
-
 
 .selection{
     padding: 2px;

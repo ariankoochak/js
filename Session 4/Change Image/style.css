@@ -1,0 +1,27 @@
+img{
+    width: 300px;
+    height: 200px;
+    
+}
+
+img:hover{
+    cursor: pointer;
+}
+
+#big{
+    width: 600px;
+    height: 370px;
+    display: block;
+    margin: auto;
+    margin-bottom: 40px;
+}
+
+.box{
+    margin: auto;
+}
+
+
+.selection{
+    padding: 2px;
+    border: 2px solid red;
+}

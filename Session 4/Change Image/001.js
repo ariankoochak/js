@@ -12,6 +12,7 @@ function DeleteAllBorder(){
 }
 function SupraFunc(){
     DeleteAllBorder();
+    document.getElementById("name").innerHTML = "Toyota Supra mk4";
     let Source = document.getElementById("supra");
     let big = document.getElementById("big");
     let NewSrc = Source.getAttribute("src");
@@ -21,6 +22,7 @@ function SupraFunc(){
 
 function R35Func(){
     DeleteAllBorder();
+    document.getElementById("name").innerHTML = "Nissan Skyline GTR R35";
     let Source = document.getElementById("r35");
     let big = document.getElementById("big");
     Source.setAttribute("class", "selection");
@@ -29,6 +31,7 @@ function R35Func(){
 
 function R34Func(){
     DeleteAllBorder();
+    document.getElementById("name").innerHTML = "Nissan Skyline GTR R34";
     let Source = document.getElementById("r34");
     let big = document.getElementById("big");
     Source.setAttribute("class", "selection");
@@ -37,6 +40,7 @@ function R34Func(){
 
 function LancerFunc(){
     DeleteAllBorder();
+    document.getElementById("name").innerHTML = "Mitsubishi Lancer Evo 9";
     let Source = document.getElementById("lancer");
     let big = document.getElementById("big");
     Source.setAttribute("class", "selection");
@@ -45,6 +49,7 @@ function LancerFunc(){
 
 function Rx7Func(){
     DeleteAllBorder();
+    document.getElementById("name").innerHTML = "Mazda RX7";
     let Source = document.getElementById("rx7");
     let big = document.getElementById("big");
     Source.setAttribute("class", "selection");

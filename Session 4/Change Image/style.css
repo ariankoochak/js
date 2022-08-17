@@ -3,6 +3,10 @@ img{
     height: 200px;
     border-radius: 2%;
 }
+p{
+    text-align: center;
+    font-size: 40px;
+}
 
 div img:hover{
     cursor: pointer;

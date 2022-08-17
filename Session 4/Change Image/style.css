@@ -8,14 +8,23 @@ div img:hover{
     cursor: pointer;
 }
 
+div img {
+    margin: 10px 5px;
+}
+
 #big{
     width: 600px;
     height: 370px;
     display: block;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 40px;
+    border-radius: 2%;
 }
-
+div{
+    display: flex;
+    justify-content: center;
+}
 .box{
     margin: auto;
 }

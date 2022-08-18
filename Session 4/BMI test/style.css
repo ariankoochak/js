@@ -41,3 +41,8 @@ h1, h3, p{
 #res{
     font-size: 130%;
 }
+img{
+    display: block;
+    margin: auto;
+    width: 25%;
+}

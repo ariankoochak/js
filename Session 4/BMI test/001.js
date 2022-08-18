@@ -5,21 +5,21 @@ function BmiCalc() {
     if(bmi < 18.5){
         document.getElementById("bmi").innerHTML = "Your BMI Test Result : " + bmi;
         document.getElementById("res").innerHTML = "Underweight";
+        document.getElementById("image").setAttribute("src","Underweight.png");
     }
     else if (bmi < 24.9) {
         document.getElementById("bmi").innerHTML = "Your BMI Test Result : " + bmi;
         document.getElementById("res").innerHTML = "Normal weight";
+        document.getElementById("image").setAttribute("src", "Normal.png");
     }
     else if (bmi < 29.9) {
         document.getElementById("bmi").innerHTML = "Your BMI Test Result : " + bmi;
         document.getElementById("res").innerHTML = "Overweight";
-    }
-    else if (bmi < 34.9) {
-        document.getElementById("bmi").innerHTML = "Your BMI Test Result : " + bmi;
-        document.getElementById("res").innerHTML = "Obesity";
+        document.getElementById("image").setAttribute("src", "Overweight.png");
     }
     else {
         document.getElementById("bmi").innerHTML = "Your BMI Test Result : " + bmi;
-        document.getElementById("res").innerHTML = "Obesity";
+        document.getElementById("res").innerHTML = "Obese";
+        document.getElementById("image").setAttribute("src", "Obese.png");
     }
 }

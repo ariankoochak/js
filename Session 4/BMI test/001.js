@@ -1,9 +1,9 @@
 function BmiCalc() {
     let text = document.getElementById("frm1");
-    console.log(text.elements[0].value);
-    console.log(text.elements[1].value);
+    console.log(+text.elements[0].value);
+    console.log(+text.elements[1].value);
     if (text.elements[0].value && text.elements[1].value){
-        let bmi = (text.elements[0].value / ((text.elements[1]. value / 100) ** 2)).toFixed(1);
+        let bmi = (+text.elements[0].value / ((+text.elements[1]. value / 100) ** 2)).toFixed(1);
         console.log(bmi);
         if(bmi < 18.5){
             document.getElementById("bmi").innerHTML = "Your BMI Test Result : " + bmi;

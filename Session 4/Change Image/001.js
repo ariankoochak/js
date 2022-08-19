@@ -54,5 +54,4 @@ function Rx7Func(){
     let big = document.getElementById("big");
     Source.setAttribute("class", "selection");
     big.setAttribute("src", Source.getAttribute("src"));
-
 }

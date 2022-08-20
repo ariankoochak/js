@@ -43,7 +43,7 @@ function PassMaker(){
 
 }
 function shuffle(pass){
-    pass = pass.split("")
+    pass = pass.split("");
     for (let i = pass.length-1; i > 0; i--) {
         let j = Math.floor(Math.random() * i);
         let t = pass[i];

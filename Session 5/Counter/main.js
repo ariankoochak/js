@@ -17,9 +17,8 @@ function MinFunc() {
 
 function AddWhenOddFunc() {
     let Num = +Counter.textContent;
-    if(Num%2){
+    if(Num%2)
         Num++;
-    }
     Counter.textContent = Num;
 }
 

@@ -1,57 +1,40 @@
+let Supra = document.getElementById("supra");
+let R35 = document.querySelector("img:nth-of-type(2)");
+let R34 = document.querySelector("img:nth-of-type(3)");
+let Lancer = document.querySelector("img:nth-of-type(4)");
+let Rx7 = document.querySelector("img:nth-of-type(5)");
+
+let Prev = Supra;
 function DeleteAllBorder(){
-    let Supra = document.getElementById("supra");
-    let R35 = document.getElementById("r35");
-    let R34 = document.getElementById("r34");
-    let Lancer = document.getElementById("lancer");
-    let Rx7 = document.getElementById("rx7");
     Supra.classList.remove("selection");
     R35.classList.remove("selection");
     R34.classList.remove("selection");
     Lancer.classList.remove("selection");
     Rx7.classList.remove("selection");
 }
-function SupraFunc(){
+function BigFunc(Elem,Name){
     DeleteAllBorder();
-    document.getElementById("name").innerHTML = "Toyota Supra mk4";
-    let Source = document.getElementById("supra");
+    Prev.classList.remove("selection");
+    document.getElementById("name").textContent = Name;
+    let NewSrc = Elem.getAttribute("src");
+    Elem.setAttribute("class", "selection");
     let big = document.getElementById("big");
-    let NewSrc = Source.getAttribute("src");
-    Source.setAttribute("class","selection");
-    big.setAttribute("src",NewSrc);
+    big.setAttribute("src", NewSrc);
+    Prev = Elem;
 }
 
-function R35Func(){
-    DeleteAllBorder();
-    document.getElementById("name").innerHTML = "Nissan Skyline GTR R35";
-    let Source = document.getElementById("r35");
-    let big = document.getElementById("big");
-    Source.setAttribute("class", "selection");
-    big.setAttribute("src", Source.getAttribute("src"));
+Supra.onclick = function() {
+    BigFunc(Supra,"Supra Mk4");
 }
-
-function R34Func(){
-    DeleteAllBorder();
-    document.getElementById("name").innerHTML = "Nissan Skyline GTR R34";
-    let Source = document.getElementById("r34");
-    let big = document.getElementById("big");
-    Source.setAttribute("class", "selection");
-    big.setAttribute("src", Source.getAttribute("src"));
+R35.onclick = function () {
+    BigFunc(R35, "R35");
 }
-
-function LancerFunc(){
-    DeleteAllBorder();
-    document.getElementById("name").innerHTML = "Mitsubishi Lancer Evo 9";
-    let Source = document.getElementById("lancer");
-    let big = document.getElementById("big");
-    Source.setAttribute("class", "selection");
-    big.setAttribute("src", Source.getAttribute("src"));
+R34.onclick = function () {
+    BigFunc(R34, "R34");
 }
-
-function Rx7Func(){
-    DeleteAllBorder();
-    document.getElementById("name").innerHTML = "Mazda RX7";
-    let Source = document.getElementById("rx7");
-    let big = document.getElementById("big");
-    Source.setAttribute("class", "selection");
-    big.setAttribute("src", Source.getAttribute("src"));
+Lancer.onclick = function () {
+    BigFunc(Lancer, "Lancer");
+}
+Rx7.onclick = function () {
+    BigFunc(Rx7, "Rx7");
 }

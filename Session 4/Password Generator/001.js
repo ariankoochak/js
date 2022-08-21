@@ -40,7 +40,6 @@ function PassMaker(){
     Password += NumberGenerator();
     console.log("pass : " + Password);
     return Password;
-
 }
 function shuffle(pass){
     pass = pass.split("");

@@ -26,9 +26,6 @@ div{
     display: flex;
     justify-content: center;
 }
-.box{
-    margin: auto;
-}
 
 .selection{
     padding: 2px;

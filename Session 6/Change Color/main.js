@@ -1,4 +1,18 @@
 let Boxes = document.querySelectorAll("div");
+let flag = 0;
+
+function DeleteAll() {
+    let flag = true;
+    for (let i = 0; i < Boxes.length; i++) {
+        if (!Boxes[i].getAttribute("style")) {
+            flag = false;
+        }
+    }
+    if (flag) {
+        alert("game over");
+    }
+}
+
 function MakeColor(){
     let Red = Math.floor(Math.random() * 256);
     let Blue = Math.floor(Math.random() * 256);
@@ -9,6 +23,7 @@ function MakeColor(){
 function ChangeColor(){
     if(!this.getAttribute("style")){
         this.setAttribute("style" , MakeColor());
+        setTimeout(DeleteAll,1);
     }
 }
 

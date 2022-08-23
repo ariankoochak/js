@@ -1,10 +1,13 @@
 let Boxes = document.querySelectorAll("div");
+function MakeColor(){
+    let Red = Math.floor(Math.random() * 256);
+    let Blue = Math.floor(Math.random() * 256);
+    let Green = Math.floor(Math.random() * 256);
+    return "background : rgb(" + String(Red) + "," + String(Green) + "," + String(Blue) + ")";
+}
 function ChangeColor(){
     if(!this.getAttribute("style")){
-        let Red = Math.floor(Math.random() * 256);
-        let Blue = Math.floor(Math.random() * 256);
-        let Green = Math.floor(Math.random() * 256);
-        this.setAttribute("style" ,"background : rgb(" + String(Red) + "," +String(Green)+","+String(Blue)+")");
+        this.setAttribute("style" , MakeColor());
     }
 }
 

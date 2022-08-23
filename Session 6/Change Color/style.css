@@ -1,0 +1,21 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+div{
+    height: 100px;
+    background: grey;
+    padding: 1rem;
+    cursor: pointer;
+}
+
+section{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 8px;
+    width: 60%;
+}

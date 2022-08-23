@@ -1,7 +1,7 @@
 let Boxes = document.querySelectorAll("div");
 let flag = 0;
 
-function DeleteAll() {
+function CheckOver() {
     let flag = true;
     for (let i = 0; i < Boxes.length; i++) {
         if (!Boxes[i].getAttribute("style")) {
@@ -23,7 +23,7 @@ function MakeColor(){
 function ChangeColor(){
     if(!this.getAttribute("style")){
         this.setAttribute("style" , MakeColor());
-        setTimeout(DeleteAll,1);
+        setTimeout(CheckOver,1);
     }
 }
 

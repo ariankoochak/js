@@ -52,6 +52,7 @@ function ShowCard(){
         }
     }
     if(CheckWin()){
+        this.classList.add("win");
         CheckTwice[1].classList.remove("open");
         CheckTwice[0].classList.remove("open");
         setTimeout(function () {

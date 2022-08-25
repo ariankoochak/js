@@ -65,6 +65,7 @@ function Reset(){
     counter = 0;
     for(let card of Cards){
         card.classList.remove("win");
+        card.classList.remove("show");
     }
     Dice();
 }

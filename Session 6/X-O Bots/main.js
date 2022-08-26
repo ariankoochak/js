@@ -126,13 +126,13 @@ function PreventAndWinFunc(){
             Blank[Math.floor(Math.random() * Blank.length)].textContent = "X";
         }
         MoveFlag = 0;
-        CheckToWin();
         document.querySelector("h2").textContent = "Player Turn";
+        CheckToWin();
     }
 }
 
 function SubmitClick(){
-    if(!this.textContent){
+    if(!this.textContent && Winner == 0){
         this.textContent = "O";
         document.querySelector("h2").textContent = "Bot Turn";
         CheckToWin();
@@ -158,7 +158,7 @@ function Newgame(){
         Turn++;
     }
 }
-
+Newgame();
 for(let Block of Blocks){
     Block.onclick = SubmitClick;
 }

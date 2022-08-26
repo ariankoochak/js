@@ -1,6 +1,5 @@
 let Blocks = document.querySelectorAll("div");
 let text = document.querySelector("h2");
-let Turn = 2;
 let MoveFlag = 0;
 let Winner = 0;
 function CheckToWin(){
@@ -44,6 +43,7 @@ function CheckToWin(){
     }
 }
 
+
 function GeneratorFunc(Box,check,make){
     for (let i = 0; i < 7; i += 3) {
         if (MoveFlag == 0) {
@@ -52,7 +52,7 @@ function GeneratorFunc(Box,check,make){
                 Blocks[i + 2].textContent = make;
             }
             else if (Box[i] == Box[i + 2] && Box[i + 2] == check && !Blocks[i + 1].textContent) {
-                MoveFlag = 1;
+                MoveFlag
                 Blocks[i + 1].textContent = make;
             }
             else if (Box[i + 1] == Box[i + 2] && Box[i + 2] == check && !Blocks[i].textContent) {
@@ -124,6 +124,7 @@ function PreventAndWinFunc(){
                 }
             }
             Blank[Math.floor(Math.random() * Blank.length)].textContent = "X";
+            MoveFlag = 1;
         }
         MoveFlag = 0;
         document.querySelector("h2").textContent = "Player Turn";
@@ -141,7 +142,6 @@ function SubmitClick(){
 }
 
 function Newgame(){
-    Turn = 2;
     MoveFlag = 0;
     Winner = 0;
     text.classList.remove("open","red","draw");
@@ -155,7 +155,6 @@ function Newgame(){
     else{
         document.querySelector("h2").textContent = "Bot Turn";
         setTimeout(PreventAndWinFunc, 1000);
-        Turn++;
     }
 }
 Newgame();

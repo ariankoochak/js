@@ -29,13 +29,17 @@ section {
 
 
 .open {
-    background: green
+    background: green;
+    color: white;
+    padding: 3px;
 }
 
 .red {
-    background: red
+    background: red;
+    padding: 3px;
+    color: white;
 }
 
 .draw{
-    background: grey
+    background: grey;
 }

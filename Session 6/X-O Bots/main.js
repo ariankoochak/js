@@ -52,7 +52,7 @@ function GeneratorFunc(Box,check,make){
                 Blocks[i + 2].textContent = make;
             }
             else if (Box[i] == Box[i + 2] && Box[i + 2] == check && !Blocks[i + 1].textContent) {
-                MoveFlag
+                MoveFlag = 1;
                 Blocks[i + 1].textContent = make;
             }
             else if (Box[i + 1] == Box[i + 2] && Box[i + 2] == check && !Blocks[i].textContent) {

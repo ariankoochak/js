@@ -75,9 +75,9 @@ function ShowCardFunc(){
     if(CheckToWin()){
          setTimeout(function(){
             if(Min == 0)
-                alert("You Win!!! \n Your Record : "+ --Timer +" s" + "\nYour Move: " + Move );
+                alert("You Win!!! \nYour Record : "+ --Timer +" s" + "\nYour Move: " + Move );
             else
-                alert("You Win!!! \n Your Record : " + Min + ":" + --Timer + " s" + "\nYour Move: " + Move);
+                alert("You Win!!! \nYour Record : " + Min + ":" + --Timer + " s" + "\nYour Move: " + Move);
          },1);
     }
 }

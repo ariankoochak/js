@@ -75,38 +75,42 @@ function ShowCardFunc(){
     if(CheckToWin()){
          setTimeout(function(){
             if(Min == 0)
-                alert("You Win!!! \nYour Record : "+ --Timer +" s" + "\nYour Move: " + Move );
+                alert("You Win!!! \nYour Record : "+ --Timer +" s" + "\nYour Move: " + Move);
             else
                 alert("You Win!!! \nYour Record : " + Min + ":" + --Timer + " s" + "\nYour Move: " + Move);
+             Reset();
          },1);
     }
 }
 
 function setTime(){
     let formater;
-    if(Min == 0){
-        if(Timer < 10)
-            formater = "0" + Timer++ + " s<pre>";
-        else
-            formater = Timer++ + " s<pre>";
+    if(Move > 0){
+        if(Min == 0){
+            if(Timer < 10)
+                formater = "00 : 0" + Timer++ + " s<pre>";
+            else
+                formater = "00 : " + Timer++ + " s<pre>";
+        }
+        else{
+            if (Timer < 10)
+                formater = "0" + Min + " : " +  "0" + Timer++ + " s<pre>";
+            else
+                formater = "0" + Min + " : " + Timer++ + " s<pre>";
+        }
+        if (Timer == 60) {
+            Timer = 0;
+            Min++;
+        }
+        CountUp[0].innerHTML = formater;
     }
-    else{
-        if (Timer < 10)
-            formater = Min + " : " +  "0" + Timer++ + " s<pre>";
-        else
-            formater = Min + " : " + Timer++ + " s<pre>";
-    }
-    if (Timer == 60) {
-        Timer = 0;
-        Min++;
-    }
-    CountUp[0].innerHTML = formater;
 }
 
 
 function Reset() {
     alert("New Game");
     Timer = Min = Move = 0;
+    CountUp[0].innerHTML = "00 : 00";
     for (let card of Cards) {
         card.classList.remove("win");
         card.classList.remove("show");

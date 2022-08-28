@@ -43,4 +43,5 @@ section {
 .draw{
     background: grey;
     color: white;
+    padding: 3px;
 }

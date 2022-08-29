@@ -17,7 +17,7 @@ function CheckToWin(){
     }
     for (let j = 0; j < 3; j++) {
         if (Box[j] == Box[j + 3] && Box[j + 3] == Box[j + 6] && Box[j+3] != "") {
-            Winner = Box[j]
+            Winner = Box[j];
         }
     }
     if(((Box[0] == Box[4] && Box[4] == Box[8]) || (Box[2] == Box[4] && Box[4] == Box[6])) && Box[4] != ""){

@@ -2,6 +2,7 @@ let Blocks = document.querySelectorAll("div");
 let text = document.querySelector("h2");
 let MoveFlag = 0;
 let Winner = 0;
+let CFlag = 0;
 function CheckToWin(){
     let Box = [];
     let FullFlag = 1;
@@ -133,11 +134,15 @@ function PreventAndWinFunc(){
 }
 
 function SubmitClick(){
-    if(!this.textContent && Winner == 0){
+    if(!this.textContent && Winner == 0 && CFlag == 0){
+        CFlag = 1;
         this.textContent = "O";
         document.querySelector("h2").textContent = "Bot Turn";
         CheckToWin();
         setTimeout(PreventAndWinFunc, 1000);
+        setTimeout(function(){
+            CFlag = 0;
+        }, 1000);
     }
 }
 

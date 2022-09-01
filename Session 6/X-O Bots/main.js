@@ -128,7 +128,7 @@ function PreventAndWinFunc(){
             MoveFlag = 1;
         }
         MoveFlag = 0;
-        document.querySelector("h2").textContent = "Player Turn";
+        document.querySelector("h2").innerHTML = "<pre>Player Turn</pre>";
         CheckToWin();
     }
 }
@@ -137,7 +137,7 @@ function SubmitClick(){
     if(!this.textContent && Winner == 0 && CFlag == 0){
         CFlag = 1;
         this.textContent = "O";
-        document.querySelector("h2").textContent = "Bot Turn";
+        document.querySelector("h2").innerHTML = "<pre> bot Turn  </pre>";
         CheckToWin();
         setTimeout(PreventAndWinFunc, 1000);
         setTimeout(function(){
@@ -155,10 +155,10 @@ function Newgame(){
     }
     let Dice = Math.random();
     if(Dice >= 0.5){
-        document.querySelector("h2").textContent = "Player Turn";
+        document.querySelector("h2").innerHTML = "<pre>Player Turn</pre>";
     }
     else{
-        document.querySelector("h2").textContent = "Bot Turn";
+        document.querySelector("h2").innerHTML = "<pre> bot Turn </pre>";
         setTimeout(PreventAndWinFunc, 1000);
     }
 }

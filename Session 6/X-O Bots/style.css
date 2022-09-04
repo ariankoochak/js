@@ -1,5 +1,6 @@
 body {
     display: flex;
+    flex-direction: column;
     font-family: Arial, Helvetica, sans-serif;
     align-items: center;
     justify-content: center;
@@ -43,5 +44,9 @@ section {
 .draw{
     background: grey;
     color: white;
+    padding: 3px;
+}
+
+h2{
     padding: 3px;
 }

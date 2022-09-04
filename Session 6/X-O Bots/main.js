@@ -137,7 +137,7 @@ function SubmitClick(){
     if(!this.textContent && Winner == 0 && CFlag == 0){
         CFlag = 1;
         this.textContent = "O";
-        document.querySelector("h2").innerHTML = "bot Turn";
+        document.querySelector("h2").innerHTML = "Bot Turn";
         CheckToWin();
         setTimeout(PreventAndWinFunc, 1000);
         setTimeout(function(){
@@ -158,7 +158,7 @@ function Newgame(){
         document.querySelector("h2").innerHTML = "Player Turn";
     }
     else{
-        document.querySelector("h2").innerHTML = "bot Turn";
+        document.querySelector("h2").innerHTML = "Bot Turn";
         setTimeout(PreventAndWinFunc, 1000);
     }
 }

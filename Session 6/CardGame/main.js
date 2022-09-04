@@ -70,6 +70,7 @@ function ShowCardFunc(){
     }
     if(CheckTwoUpFunc()){
         Move++;
+        CountUp[1].textContent = "Move Num : " + Move;
         CheckEqualFunc();
     }
     if(CheckToWin()){
@@ -111,6 +112,7 @@ function Reset() {
     alert("New Game");
     Timer = Min = Move = 0;
     CountUp[0].innerHTML = "00 : 00";
+    CountUp[1].innerHTML = "Move Num : 0";
     for (let card of Cards) {
         card.classList.remove("win");
         card.classList.remove("show");

@@ -1,6 +1,4 @@
-let works = [
-]
-
+let works = []
 document.getElementById("submit").onclick = function(){
     let input = document.querySelectorAll("input");
     let newWork = {
@@ -15,10 +13,9 @@ document.getElementById("submit").onclick = function(){
         <div class = "${work.id}">
             <h3>${work.title}</h3>
             <p>${work.details}</p>
-            <button class = "${work.id}" onclick = "doneButton(${work.id})">Done</button>
+            <button class = "${work.id}" onclick = "doneButton(${work.id}">Done</button>
             <button class ="${work.id}"  onclick = "removeButton(${work.id})">Delete</button>
-        </div>
-        `;
+        </div>`;
         document.getElementById("list").innerHTML += template;
     }
     input[0].value = input[1].value = "";

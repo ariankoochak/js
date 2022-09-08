@@ -29,5 +29,5 @@ for(let student of students){
     let li = document.createElement("li")
     li.textContent = student.name + " " + student.family;
     document.querySelector("ul").appendChild(li);
-    
+
 }

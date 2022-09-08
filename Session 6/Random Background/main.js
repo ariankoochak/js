@@ -1,10 +1,3 @@
-let Name = ["Kremlin,Moscow",
- "Azadi,Tehran",
-  "Chernobyl,Pripyat",
-  "Brandenburg Gate,Berlin",
-  "Milad Tower,Tehran",
-  "Karoon River,Ahwaz"];
-
 let backs = [
   {
     placeName : "Kremlin",

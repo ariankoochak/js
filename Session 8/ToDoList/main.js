@@ -13,7 +13,7 @@ document.getElementById("submit").onclick = function(){
         <div class = "${work.id}">
             <h3>${work.title}</h3>
             <p>${work.details}</p>
-            <button class = "${work.id}" onclick = "doneButton(${work.id}">Done</button>
+            <button class = "${work.id}" onclick = "doneButton(${work.id})">Done</button>
             <button class ="${work.id}"  onclick = "removeButton(${work.id})">Delete</button>
         </div>`;
         document.getElementById("list").innerHTML += template;

@@ -13,7 +13,7 @@ document.getElementById("submit").onclick = function(){
         document.getElementById("list").innerHTML = "";
         for(let work of works){
             let template = `
-            <div class = "${work.id} work">
+            <div class = "${work.id} work ">
                 <h3>${work.title}</h3>
                 <p>${work.details}</p>
                 <button class = "${work.id} neo" onclick = "doneButton(${work.id})">Done</button>

@@ -5,9 +5,8 @@ body{
 }
 
 .done{
-    color: rgb(61, 155, 61) !important;
+    color: #519167 !important;
 }
-
 .neo {
     margin: 10px;
     border: 0px;
@@ -24,17 +23,6 @@ button:active {
     box-shadow: inset 6px 6px 12px #bebebe,
         inset -6px -6px 12px #ffffff;
 }
-/* div button{
-    border-radius: 5px;
-    background: #e0e0e0;
-    box-shadow: inset 6px 6px 12px #bebebe,
-        inset -6px -6px 12px #ffffff;
-    margin: 10px;
-    border: 0px;
-    border-radius: 5px;
-    padding: 10px;
-    color: #929292;
-} */
 input{
     width: 30%;
 }
@@ -44,7 +32,6 @@ h1{
     text-shadow: 5px 5px 10px #a8a8a8,
         -5px -5px 10px #ffffff;
 }
-
 .work{
     margin: 50px auto;
     border: 0px;

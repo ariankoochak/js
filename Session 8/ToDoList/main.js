@@ -1,10 +1,11 @@
 let works = []
 let idCounter = 0;
+let itemDOM = document.getElementById("items");
 document.getElementById("submit").onclick = function(){
     let input = document.querySelectorAll("input");
     if(input[0].value != "" && input[1].value != ""){
         let newWork = {
-            id : idCounter,
+            id : idCounter+1,
             title : input[0].value,
             details : input[1].value
         }
@@ -21,9 +22,9 @@ document.getElementById("submit").onclick = function(){
             </div>`;
             document.getElementById("list").innerHTML += template;
         }
+        itemDOM.textContent = works.length + " items";
         input[0].value = input[1].value = "";
     }
-    console.log(works);
 }
 function doneButton(id){
     let selectId = document.getElementsByClassName(`${id}`);
@@ -33,5 +34,10 @@ function doneButton(id){
 function removeButton(id) {
     let selectId = document.getElementsByClassName(`${id}`);
     selectId[0].remove();
-    works.splice(id-1,1);
+    let index = works.indexOf(selectId[0]);
+    works.splice(index,1);
+    if(works.length == 0)
+        itemDOM.textContent = "";
+    else
+        itemDOM.textContent = works.length + " items";
 }

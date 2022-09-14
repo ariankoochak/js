@@ -174,3 +174,25 @@ function setBooks(filterName,filterKind){
     }
 }
 setBooks();
+
+
+
+document.getElementsByTagName("button")[0].onclick = function () {
+    document.querySelector("section").innerHTML = "";
+    setBooks();
+}
+
+document.getElementsByTagName("button")[1].onclick = function () {
+    document.querySelector("section").innerHTML = "";
+    setBooks("genre", "شعر");
+}
+
+document.getElementsByTagName("button")[2].onclick = function(){
+    document.querySelector("section").innerHTML = "";
+    setBooks("genre","عاشقانه");
+}
+
+document.getElementsByTagName("button")[3].onclick = function () {
+    document.querySelector("section").innerHTML = "";
+    setBooks("genre", "درام");
+}

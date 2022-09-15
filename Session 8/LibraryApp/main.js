@@ -196,3 +196,31 @@ document.getElementsByTagName("button")[3].onclick = function () {
     document.querySelector("section").innerHTML = "";
     setBooks("genre", "درام");
 }
+
+document.getElementsByTagName("button")[4].onclick = function () {
+    document.querySelector("section").innerHTML = "";
+    for (let book of books) {
+        let fil = book.language;
+        if (fil != "persian") {
+            let template = `
+                    <div>
+                        <img src="./image/${book.imgSrc}">
+                        <p>${book.title}</p>
+                    </div>
+            `
+            document.querySelector("section").innerHTML += template;
+        }
+    }
+}
+
+document.getElementsByTagName("button")[5].onclick = function () {
+    document.querySelector("section").innerHTML = "";
+    setBooks("language", "persian");
+}
+
+
+
+document.getElementsByTagName("button")[6].onclick = function () {
+    document.querySelector("section").innerHTML = "";
+    setBooks("author", "هومر");
+}

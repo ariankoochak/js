@@ -17,6 +17,17 @@ body{
     padding: 10px 20px;
     color: #929292;
 }
+
+button{
+    margin: 10px;
+    border: 0px;
+    border-radius: 5px;
+    background: #e0e0e0;
+    box-shadow: 6px 6px 12px #bebebe,
+        -6px -6px 12px #ffffff;
+    padding: 10px 20px;
+    color: #929292;
+}
 button:active {
     border-radius: 5px;
     background: #e0e0e0;
@@ -24,6 +35,14 @@ button:active {
         inset -6px -6px 12px #ffffff;
 }
 input{
+    margin: 10px;
+    border: 0px;
+    border-radius: 5px;
+    background: #e0e0e0;
+    box-shadow: 6px 6px 12px #bebebe,
+        -6px -6px 12px #ffffff;
+    padding: 10px 20px;
+    color: #929292;
     width: 30%;
 }
 h1{
@@ -44,7 +63,7 @@ h1{
     width: 30%;
 }
 
-#items{
+.items{
     color: #929292;
     margin-bottom: -20px;
     font-size: 18px;

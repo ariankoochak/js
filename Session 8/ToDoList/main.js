@@ -1,79 +1,87 @@
-let works = []
-let idCounter = 0;
-let itemDOM = document.getElementById("items");
-document.getElementById("submit").onclick = function(){
+let works = [];
+let counterId = 0;
+
+
+function PrintAll() {
+    let itemsNum = document.getElementsByTagName("p");
+    if (works.length > 0)
+        itemsNum[0].textContent = `${works.length} items`;
+    else
+        itemsNum[0].textContent = "";
+    document.getElementById("list").innerHTML = "";
+    for (let work of works) {
+        printWork(work);
+    }
+}
+
+function addToArray() {
     let input = document.querySelectorAll("input");
-    if(input[0].value != "" && input[1].value != ""){
+    let title = input[0].value;
+    let detail = input[1].value;
+    if(title != ""){
         let newWork = {
-            id : idCounter+1,
-            title : input[0].value,
-            details : input[1].value
+            id: counterId,
+            title: title,
+            detail: detail,
+            done: false
         }
-        idCounter++;
+        counterId++;
         works.push(newWork);
-        document.getElementById("list").innerHTML = "";
-        for(let work of works){
-            let template = `
-            <div class = "${work.id} work ">
-                <h3>${work.title}</h3>
-                <p>${work.details}</p>
-                <button class = "${work.id} neo" onclick = "doneButton(${work.id})">Done</button>
-                <button class ="${work.id} neo"  onclick = "removeButton(${work.id})">Delete</button>
-            </div>`;
-            document.getElementById("list").innerHTML += template;
-        }
-        itemDOM.textContent = works.length + " items";
+        PrintAll();
         input[0].value = input[1].value = "";
     }
 }
-function doneButton(id){
-    let selectId = document.getElementsByClassName(`${id}`);
-    let nowObj;
-    console.log(id);
-    for(let work of works){
-        if(work.id == id){
-            nowObj = work;
-            break;
-        }
+
+function printWork(work) {
+    let list = document.getElementById("list");
+    let template;
+    if (work.done == false) {
+        template = `       
+        <div class = "${work.id} work">
+            <h2>${work.title}</h2>
+            <h4>${work.detail}</h4>
+            <button onclick="doneProcces(${work.id})" class="${work.id}">done</button>
+            <button onclick="deleteWork(${work.id})" class="${work.id}">delete</button>
+        </div>`;
     }
-    console.log(works);
-    console.log(nowObj);
-    selectId[0].outerHTML = `
-            <div class = "${id} work done">
-                <h3>${nowObj.title}</h3>
-                <p>${nowObj.details}</p>
-                <button class = "${id} neo" onclick = "reDoButton(${id})">Reset</button>
-                <button class ="${id} neo"  onclick = "removeButton(${id})">Delete</button>
-            </div>
-    `; 
+    else {
+        template = `       
+        <div class = "${work.id} work done">
+            <h2 >${work.title}</h2>
+            <h4>${work.detail}</h4>
+            <button onclick="resetProcces(${work.id})" class="${work.id}">reset</button>
+            <button onclick="deleteWork(${work.id})" class="${work.id}">delete</button>
+        </div>`;
+    }
+    list.innerHTML += template;
 }
 
-function reDoButton(id){
-    let selectId = document.getElementsByClassName(`${id}`);
-    let nowObj;
+function doneProcces(id) {
     for (let work of works) {
         if (work.id == id) {
-            nowObj = work;
+            work.done = true;
             break;
         }
     }
-    selectId[0].outerHTML = `
-            <div class = "${id} work">
-                <h3>${nowObj.title}</h3>
-                <p>${nowObj.details}</p>
-                <button class = "${id} neo" onclick = "doneButton(${id})">Done</button>
-                <button class ="${id} neo"  onclick = "removeButton(${id})">Delete</button>
-            </div>
-    `;
+    PrintAll();
 }
 
-function removeButton(id) {
-    let selectId = document.getElementsByClassName(`${id}`);
-    selectId[0].remove();
-    let index = works.indexOf(selectId[0]);
-    works.splice(index,1);
-    if(works.length == 0)
-        itemDOM.textContent = "";
-    else
-        itemDOM.textContent = works.length + " items";
+function deleteWork(id) {
+    for (let i = 0; i < works.length; i++) {
+        if (works[i].id == id) {
+            works.splice(i, 1);
+            break;
+        }
+    }
+    PrintAll();
+}
+
+function resetProcces(id) {
+    for (let work of works) {
+        if (work.id == id) {
+            work.done = false;
+            break;
+        }
+    }
+    PrintAll();
 }

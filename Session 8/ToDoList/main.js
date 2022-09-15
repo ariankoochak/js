@@ -28,7 +28,43 @@ document.getElementById("submit").onclick = function(){
 }
 function doneButton(id){
     let selectId = document.getElementsByClassName(`${id}`);
-    selectId[0].classList.add("done");
+    let nowObj;
+    console.log(id);
+    for(let work of works){
+        if(work.id == id){
+            nowObj = work;
+            break;
+        }
+    }
+    console.log(works);
+    console.log(nowObj);
+    selectId[0].outerHTML = `
+            <div class = "${id} work done">
+                <h3>${nowObj.title}</h3>
+                <p>${nowObj.details}</p>
+                <button class = "${id} neo" onclick = "reDoButton(${id})">Reset</button>
+                <button class ="${id} neo"  onclick = "removeButton(${id})">Delete</button>
+            </div>
+    `; 
+}
+
+function reDoButton(id){
+    let selectId = document.getElementsByClassName(`${id}`);
+    let nowObj;
+    for (let work of works) {
+        if (work.id == id) {
+            nowObj = work;
+            break;
+        }
+    }
+    selectId[0].outerHTML = `
+            <div class = "${id} work">
+                <h3>${nowObj.title}</h3>
+                <p>${nowObj.details}</p>
+                <button class = "${id} neo" onclick = "doneButton(${id})">Done</button>
+                <button class ="${id} neo"  onclick = "removeButton(${id})">Delete</button>
+            </div>
+    `;
 }
 
 function removeButton(id) {

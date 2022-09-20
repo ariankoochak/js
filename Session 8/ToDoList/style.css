@@ -8,6 +8,7 @@ body{
     color: #519167 !important;
 }
 .neo {
+    word-break: break-all;
     margin: 10px;
     border: 0px;
     border-radius: 5px;

@@ -1,0 +1,18 @@
+body {
+    background-color: #444;
+    margin: 0;
+    height: 800vh;
+}
+
+header {
+    background-color: cyan;
+    height: 100px;
+    position: sticky;
+    top: 0;
+    transition: .5s;
+}
+
+header.changed {
+    background-color: orangered;
+    height: 50px;
+}

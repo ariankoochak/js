@@ -18,13 +18,14 @@ function priceCalculate(nowDom){
     let strPrice = nowDom[6].innerHTML;
     strPrice = strPrice.slice(0, strPrice.length - 1);
     price += Number(strPrice);
-    domPrice.childNodes[1].innerHTML = price;
+    domPrice.childNodes[0].innerHTML = "sum : " + price + "$";
 }
 function clickEv(){
     let nowStep = document.getElementsByClassName("main");
     priceCalculate(this.childNodes);
     nextStep(nowStep);
     if(nowStep[0] == finish){
+        domPrice.childNodes[0].innerHTML = "";
         document.getElementById("finPrice").innerHTML = price;
     }
 }

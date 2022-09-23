@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+    <title>Computer Making</title>
+</head>
+<body>
+    <!-- Step 1 (motherBoard)-->
+    <div id="motherBoard" class="main">
+        <h1>Select motherBoard</h1><br><br>
+        <section>
+            <div>
+                <img src="./images/motherBoard/1.jpg" alt=""><br>
+                <p>Z690</p>
+                <p>200$</p>
+            </div>
+            <div>
+                <img src="./images/motherBoard/2.jpg" alt=""><br>
+                <p>H310</p>
+                <p>120$</p>
+            </div>
+            <div>
+                <img src="./images/motherBoard/3.jpg" alt=""><br>
+                <p>B450</p>
+                <p>100$</p>
+            </div>
+            <div>
+                <img src="./images/motherBoard/4.jpg" alt=""><br>
+                <p>X570</p>
+                <p>180$</p>
+            </div>
+        </section>
+    </div>
+    <!--  -->
+
+    <!-- Step 2 (CPU)-->
+    <div id="cpu" class="un-selected">
+        <h1>Select cpu</h1><br><br>
+        <section>
+            <div>
+                <img src="./images/cpu/1.jpg" alt=""><br>
+                <p>Core i7 12700</p>
+                <p>120$</p>
+            </div>
+            <div>
+                <img src="./images/cpu/2.jpg" alt=""><br>
+                <p>Core i5 9600k</p>
+                <p>80$</p>
+            </div>
+            <div>
+                <img src="./images/cpu/3.jpg" alt=""><br>
+                <p>Ryzen 5 5600G</p>
+                <p>90$</p>
+            </div>
+            <div>
+                <img src="./images/cpu/4.jpg" alt="" class="cpu-fix"><br>
+                <p>Ryzen 9 5950G</p>
+                <p>100$</p>
+            </div>
+        </section>
+    </div>
+    <!--  -->
+
+    <!-- Step 3 (GPU)-->
+    <div id="gpu" class="un-selected">
+        <h1>Select gpu</h1><br><br>
+        <section>
+            <div>
+                <img src="./images/gpu/1.jpg" alt=""><br>
+                <p>RTX 3090Ti</p>
+                <p>1000$</p>
+            </div>
+            <div>
+                <img src="./images/gpu/2.jpg" alt=""><br>
+                <p>GTX 1650</p>
+                <p>200$</p>
+            </div>
+            <div>
+                <img src="./images/gpu/3.jpg" alt=""><br>
+                <p>RX 6600XT</p>
+                <p>500$</p>
+            </div>
+            <div>
+                <img src="./images/gpu/4.jpg" alt="" class="cpu-fix"><br>
+                <p>RX 6900XT</p>
+                <p>800$</p>
+            </div>
+        </section>
+    </div>
+    <!--  -->
+
+    <!-- Step 4 (Ram)-->
+    <div id="ram" class="un-selected">
+        <h1>Select ram</h1><br><br>
+        <section>
+            <div>
+                <img src="./images/ram/1.jpg" alt=""><br>
+                <p>32GB DDR4</p>
+                <p>500$</p>
+            </div>
+            <div>
+                <img src="./images/ram/2.jpg" alt=""><br>
+                <p>8GB DDR4</p>
+                <p>50$</p>
+            </div>
+            <div>
+                <img src="./images/ram/3.jpg" alt=""><br>
+                <p>16GB DDR4</p>
+                <p>90$</p>
+            </div>
+            <div>
+                <img src="./images/ram/4.jpg" alt="" class="cpu-fix"><br>
+                <p>24GB DDR4<p>
+                <p>200$</p>
+            </div>
+        </section>
+    </div>
+    <!--  -->
+
+    <!-- Step 5 (Power)-->
+    <div id="power" class="un-selected">
+        <h1>Select powe</h1><br><br>
+        <section>
+            <div>
+                <img src="./images/power/1.jpg" alt=""><br>
+                <p>1000W</p>
+                <p>900$</p>
+            </div>
+            <div>
+                <img src="./images/power/2.jpg" alt=""><br>
+                <p>600W</p>
+                <p>200$</p>
+            </div>
+            <div>
+                <img src="./images/power/3.jpg" alt=""><br>
+                <p>580W</p>
+                <p>100$</p>
+            </div>
+            <div>
+                <img src="./images/power/4.jpg" alt="" class="cpu-fix"><br>
+                <p>750W</p>
+                <p>500$</p>
+            </div>
+        </section>
+    </div>
+    <!--  -->
+
+    <!-- Step 6 (case)-->
+    <div id="case" class="un-selected">
+        <h1>Select case</h1><br><br>
+        <section>
+            <div>
+                <img src="./images/case/1.jpg" alt=""><br>
+                <p>ROG</p>
+                <p>600$</p>
+            </div>
+            <div>
+                <img src="./images/case/2.jpg" alt=""><br>
+                <p>Aria Green</p>
+                <p>60$</p>
+            </div>
+            <div>
+                <img src="./images/case/3.jpg" alt=""><br>
+                <p>G6 Green</p>
+                <p>100$</p>
+            </div>
+            <div>
+                <img src="./images/case/4.jpg" alt="" class="cpu-fix"><br>
+                <p>Cooler Master</p>
+                <p>300$</p>
+            </div>
+        </section>
+    </div>
+    <div id="finish" class="un-selected">
+        <h1>Price : <span id="finPrice"></span></h1>
+    </div>
+    <!--  -->
+    <footer>
+        <p id="price">sum : <span></span></p>
+    </footer>
+</body>
+</html>

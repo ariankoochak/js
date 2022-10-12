@@ -9,7 +9,7 @@ function render() {
                 <td>${age}</td>
                 <td>${course}</td>
                 <td>
-                    <button class="btn btn-info btn-sm" data-bs-toggle="edit-modal" data-bs-target="#edit-modal">Edit</button>
+                    <button class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#edit-modal" onclick="prepareForEdit(${id})">Edit</button>
                     <button class="btn btn-danger btn-sm" onclick="DeleteStudent(${id})">Delete</button>
                 </td>
             </tr>
@@ -51,4 +51,27 @@ function DeleteStudent(studentId) {
 function enterKeyEvent(e){
     if(e.keyCode === 13)
         addStudent();
+}
+
+function prepareForEdit(id){
+    let inp = STUDENTS.find(function(ind){
+        return ind.id === id;
+    });
+    editElements.name.value = inp.name;
+    editElements.age.value = inp.age;
+    editElements.email.value = inp.email;
+    editElements.course.value = inp.course;
+    editId = inp.id;
+}
+
+function editStudent(){
+    let editInp = STUDENTS.find(function (ind) {
+        return ind.id === editId;
+    });
+    editInp.name = editElements.name.value;
+    editInp.age = editElements.age.value;
+    editInp.email = editElements.email.value;
+    editInp.course = editElements.course.value;
+    render();
+    closeEditBtn.click();
 }

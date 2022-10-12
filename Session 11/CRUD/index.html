@@ -77,7 +77,7 @@
     </div>
 
     <!-- EDIT student Modal -->
-    <div class="edit-modal fade" id="edit-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="edit-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
@@ -87,23 +87,23 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-6 my-2">
-                            <input type="text" id="name" class="form-control" placeholder="Full Name" aria-label="Full Name"
+                            <input type="text" id="edit-name" class="form-control" placeholder="Full Name" aria-label="Full Name"
                                 autofocus>
                         </div>
                         <div class="col-6 my-2">
-                            <input type="text" id="email" class="form-control" placeholder="Email" aria-label="Email">
+                            <input type="text" id="edit-email" class="form-control" placeholder="Email" aria-label="Email">
                         </div>
                         <div class="col-6 my-2">
-                            <input type="number" id="age" class="form-control" placeholder="Age" aria-label="Age">
+                            <input type="number" id="edit-age" class="form-control" placeholder="Age" aria-label="Age">
                         </div>
                         <div class="col-6 my-2">
-                            <input type="text" id="course" class="form-control" placeholder="Course" aria-label="Course">
+                            <input type="text" id="edit-course" class="form-control" placeholder="Course" aria-label="Course">
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="close-modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="add-btn">Add</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="close-edit-modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="edit-btn">Update</button>
                 </div>
             </div>
         </div>

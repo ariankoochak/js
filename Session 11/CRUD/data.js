@@ -14,28 +14,70 @@ const STUDENTS = [
         course: 'Java'
     },
     {
-        id: 1,
+        id: 3,
         name: 'Sana Samin',
         age: 30,
         email: 'sana@samin.com',
         course: 'JS'
     },
     {
-        id: 2,
+        id: 4,
         name: 'Sahel Aghapour',
         age: 25,
         email: 'sahel@google.com',
         course: 'Java'
     },
     {
-        id: 1,
+        id: 5,
         name: 'Sana Samin',
         age: 30,
         email: 'sana@samin.com',
         course: 'JS'
     },
     {
-        id: 2,
+        id: 6,
+        name: 'Sahel Aghapour',
+        age: 25,
+        email: 'sahel@google.com',
+        course: 'Java'
+    },
+    {
+        id: 7,
+        name: 'Sana Samin',
+        age: 30,
+        email: 'sana@samin.com',
+        course: 'JS'
+    },
+    {
+        id: 8,
+        name: 'Sahel Aghapour',
+        age: 25,
+        email: 'sahel@google.com',
+        course: 'Java'
+    },
+    {
+        id: 9,
+        name: 'Sana Samin',
+        age: 30,
+        email: 'sana@samin.com',
+        course: 'JS'
+    },
+    {
+        id: 10,
+        name: 'Sahel Aghapour',
+        age: 25,
+        email: 'sahel@google.com',
+        course: 'Java'
+    },
+    {
+        id: 11,
+        name: 'Sana Samin',
+        age: 30,
+        email: 'sana@samin.com',
+        course: 'JS'
+    },
+    {
+        id: 12,
         name: 'Sahel Aghapour',
         age: 25,
         email: 'sahel@google.com',

@@ -1,4 +1,4 @@
-function unUsedDigit(...args){
+function unusedDigit(...args){
     let nums = "1234567890".split("");
     args = args.join("");
     args = args.split("");

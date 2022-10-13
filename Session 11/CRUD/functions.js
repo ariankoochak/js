@@ -1,6 +1,7 @@
-function render() {
+function render(page) {
     let template = STUDENTS.map(function (std, index) {
         const { id, name, age, email, course } = std
+        if(index+1 > page-10 && index+1 <= page){
         return `
             <tr>
                 <td>${index+1}</td>
@@ -13,9 +14,12 @@ function render() {
                     <button class="btn btn-danger btn-sm" onclick="DeleteStudent(${id})">Delete</button>
                 </td>
             </tr>
-        `
+        `}
     }).join("");
-    root.innerHTML = template
+    root.innerHTML = template;
+    currentPage = page;
+    lastPage = Math.ceil(STUDENTS.length / 10)*10;
+    generatePagination();
 }
 
 function GenerateId() {
@@ -32,7 +36,7 @@ function addStudent() {
         id: GenerateId()
     };
     STUDENTS.push(std);
-    render();
+    render(lastPage);
     name.value = email.value = age.value = course.value = "";
     closeBtn.click();
 }
@@ -45,7 +49,7 @@ function DeleteStudent(studentId) {
         return std.id === studentId
     })
     STUDENTS.splice(index,1);
-    render();
+    render(currentPage);
 }
 
 function enterKeyEvent(e){
@@ -72,6 +76,25 @@ function editStudent(){
     editInp.age = editElements.age.value;
     editInp.email = editElements.email.value;
     editInp.course = editElements.course.value;
-    render();
+    render(currentPage);
     closeEditBtn.click();
+}
+
+function pagination(){
+    let pageNum = +(this.innerHTML);
+    pageNum = (pageNum*10);
+    render(pageNum);
+}
+
+
+function generatePagination(){
+    paginationDom.innerHTML = `<li class="page-item"><a class="page-link" href="#" id="prev-page">Previous</a></li>`;
+    for(let i = 1;i <= lastPage/10;i++){
+        let template = `<li class="page-item"><a class="page-link pages" href="#">${i}</a></li>`;
+        paginationDom.innerHTML += template;
+    }
+    paginationDom.innerHTML += `<li class="page-item" id="next-page"><a class="page-link" href="#">Next</a></li>`;
+    for (let page of pages) {
+        page.addEventListener("click", pagination);
+    }
 }

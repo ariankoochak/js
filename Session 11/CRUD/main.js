@@ -16,21 +16,20 @@ const editElements ={
 }
 let closeBtn = document.getElementById("close-modal");
 let closeEditBtn = document.getElementById("close-edit-modal");
-let id = 3;
+let id = 1;
 let addBtn = document.getElementById("add-btn");
 let editBtn = document.getElementById("edit-btn");
 let editId;
-
+let pages = document.getElementsByClassName("pages");
+let lastPage;
+let currentPage;
+let paginationDom = document.getElementById("pagination");
 // intial methods
-render();
-
-
-
-
-
+render(10);
 // EVENTS
 addBtn.addEventListener("click", addStudent);
 editBtn.addEventListener("click",editStudent);
+
 
 const {name ,email,age,course} = inputElements;
 name.addEventListener("keypress",enterKeyEvent);

@@ -81,6 +81,34 @@ const STUDENTS = [
         name: 'Sahel Aghapour',
         age: 25,
         email: 'sahel@google.com',
-        course: 'Java'
-    }
+        course: 'Python'
+    },
+    {
+        id: 13,
+        name: 'Sahel Aghapour',
+        age: 25,
+        email: 'sahel@google.com',
+        course: 'Python'
+    },
+    {
+        id: 14,
+        name: 'Sahel Aghapour',
+        age: 25,
+        email: 'sahel@google.com',
+        course: 'Python'
+    },
+    {
+        id: 15,
+        name: 'Sahel Aghapour',
+        age: 25,
+        email: 'sahel@google.com',
+        course: 'Python'
+    },
+    {
+        id: 16,
+        name: 'Sahel Aghapour',
+        age: 25,
+        email: 'sahel@google.com',
+        course: 'Python'
+    },
 ]

@@ -1,13 +1,7 @@
 let xhos = ["x","x","o","o"];
-let xCounter = 0;
-let oCounter = 0;
-for(let xo of xhos){
-    if(xo == "x")
-        xCounter++;
-    else
-        oCounter++;
-}
-if(xCounter == oCounter)
+let xCounter = xhos.filter(function(xo){return xo == "x";});
+let oCounter = xhos.filter(function (xo) { return xo == "o"; });
+if(xCounter.length == oCounter.length)
     console.log("Yes!");
 else
     console.log("No!");

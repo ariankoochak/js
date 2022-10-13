@@ -1,10 +1,10 @@
 function squareDigits(num){
     num = String(num);
     num = num.split("");
-    let exp = "";
-    for(let b of num){
-        exp +=  String(Math.pow(Number(b),2));
-    }
-    return exp;
+    let exp = num.map(function(b){
+        return b**2;
+    })
+    exp = exp.join("");
+    console.log(exp);
 }
 squareDigits(123);

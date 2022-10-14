@@ -36,7 +36,10 @@ function addStudent() {
         id: GenerateId()
     };
     STUDENTS.push(std);
-    render(lastPage);
+    if((STUDENTS.length-1)%10 == 0)
+        render(((lastPage/10)+1)*10);
+    else
+        render(lastPage);
     name.value = email.value = age.value = course.value = "";
     closeBtn.click();
 }
@@ -97,4 +100,18 @@ function generatePagination(){
     for (let page of pages) {
         page.addEventListener("click", pagination);
     }
+    let prev = document.getElementById("prev-page");
+    let next = document.getElementById("next-page");
+    prev.addEventListener("click",function(){
+        if(currentPage != 10){
+            let prevPage = (currentPage/10) - 1;
+            render(prevPage*10);
+        }
+    })
+    next.addEventListener("click",function(){
+        if(currentPage != lastPage){
+            let nextPage = (currentPage/10) + 1;
+            render(nextPage*10);
+        }
+    });
 }

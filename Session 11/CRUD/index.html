@@ -19,7 +19,9 @@
             <h1>Student List</h1>
             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal">Add Student</button>
         </header>
-
+        <!-- Search -->
+        <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#search-modal">Search</button>
+        <!-- Table -->
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -105,6 +107,40 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="close-edit-modal">Close</button>
                     <button type="button" class="btn btn-primary" id="edit-btn">Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Search Modal -->
+    <div class="modal fade" id="search-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5">Search Student</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-6 my-2">
+                            <input type="text" id="search-name" class="form-control" placeholder="Full Name"
+                                aria-label="Full Name" autofocus>
+                        </div>
+                        <div class="col-6 my-2">
+                            <input type="text" id="search-email" class="form-control" placeholder="Email" aria-label="Email">
+                        </div>
+                        <div class="col-6 my-2">
+                            <input type="number" id="search-age" class="form-control" placeholder="Age" aria-label="Age">
+                        </div>
+                        <div class="col-6 my-2">
+                            <input type="text" id="search-course" class="form-control" placeholder="Course"
+                                aria-label="Course">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                        id="close-search-modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="search-btn">Search</button>
                 </div>
             </div>
         </div>

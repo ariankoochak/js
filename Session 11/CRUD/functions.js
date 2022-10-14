@@ -1,5 +1,5 @@
-function render(page) {
-    let template = STUDENTS.map(function (std, index) {
+function render(page,arr) {
+    let template = arr.map(function (std, index) {
         const { id, name, age, email, course } = std
         if(index+1 > page-10 && index+1 <= page){
         return `
@@ -18,7 +18,7 @@ function render(page) {
     }).join("");
     root.innerHTML = template;
     currentPage = page;
-    lastPage = Math.ceil(STUDENTS.length / 10)*10;
+    lastPage = Math.ceil(arr.length / 10)*10;
     generatePagination();
 }
 
@@ -37,9 +37,9 @@ function addStudent() {
     };
     STUDENTS.push(std);
     if((STUDENTS.length-1)%10 == 0)
-        render(((lastPage/10)+1)*10);
+        render(((lastPage / 10) + 1) * 10, STUDENTS);
     else
-        render(lastPage);
+        render(lastPage, STUDENTS);
     name.value = email.value = age.value = course.value = "";
     closeBtn.click();
 }
@@ -52,7 +52,7 @@ function DeleteStudent(studentId) {
         return std.id === studentId
     })
     STUDENTS.splice(index,1);
-    render(currentPage);
+    render(currentPage, STUDENTS);
 }
 
 function enterKeyEvent(e){
@@ -79,14 +79,14 @@ function editStudent(){
     editInp.age = editElements.age.value;
     editInp.email = editElements.email.value;
     editInp.course = editElements.course.value;
-    render(currentPage);
+    render(currentPage,STUDENTS);
     closeEditBtn.click();
 }
 
 function pagination(){
     let pageNum = +(this.innerHTML);
     pageNum = (pageNum*10);
-    render(pageNum);
+    render(pageNum, STUDENTS);
 }
 
 
@@ -105,13 +105,23 @@ function generatePagination(){
     prev.addEventListener("click",function(){
         if(currentPage != 10){
             let prevPage = (currentPage/10) - 1;
-            render(prevPage*10);
+            render(prevPage * 10, STUDENTS);
         }
     })
     next.addEventListener("click",function(){
         if(currentPage != lastPage){
             let nextPage = (currentPage/10) + 1;
-            render(nextPage*10);
+            render(nextPage * 10, STUDENTS);
         }
     });
 }
+
+function searchFilter(){
+    STUDENTSFILTER = STUDENTS.filter(function(stu){
+        return stu.name == searchElements.name.value;
+    });
+    render(10,STUDENTSFILTER);
+    closeSearchBtn.click();
+}
+
+

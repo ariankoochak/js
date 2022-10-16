@@ -1,3 +1,0 @@
-Add-Remove-Edit-Search-Sort-Validation
-
-Pagination-Show

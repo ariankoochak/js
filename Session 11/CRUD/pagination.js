@@ -15,7 +15,7 @@ function pageMaker(arr){
         pass = 2;
     for(let i = 1; i <= pageNum;i++){
         paginationTemplate += `
-            <li class="page-item"><a class="page-link" href="#" onclick = "changePage(${i},${pass})">${i}</a></li>
+            <li class="page-item ${(nowPage === i) ? 'disabled': ''}"><a class="page-link" href="#" onclick = "changePage(${i},${pass},event)">${i}</a></li>
         `;
     }
     paginationTemplate += `
@@ -56,7 +56,8 @@ function LayoutMaker(arr,pageNum){
 }
 
 
-function changePage(pageNum,pass){
+function changePage(pageNum,pass, event){
+    event.target.classList.add("disabled")
     nowPage = pageNum;
     if(pass == 1)
         render(STUDENTSFILTER,pageNum);

@@ -1,0 +1,13 @@
+#select-page{
+    margin-left: 10px;
+    width: 45px;
+    display: inline-block;
+}
+
+#name-sort ,#email-sort ,#age-sort, #course-sort{
+    cursor: pointer;
+}
+
+.disabled {
+    pointer-events: none;
+}

@@ -18,7 +18,8 @@ function addToDataBase(){
         course : course.value,
     }
     STUDENTS.push(std);
-    render(STUDENTS);
+    nowPage = Math.ceil(STUDENTS.length / pageLayout);
+    render(STUDENTS, nowPage);
     fullName.value = email.value = age.value = course.value = "";
     closeBtn.click();
 }

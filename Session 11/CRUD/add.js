@@ -17,11 +17,13 @@ function addToDataBase(){
         age : age.value,
         course : course.value,
     }
-    STUDENTS.push(std);
-    nowPage = Math.ceil(STUDENTS.length / pageLayout);
-    render(STUDENTS, nowPage);
-    fullName.value = email.value = age.value = course.value = "";
-    closeBtn.click();
+    if (validationModals(fullName.value, email.value, age.value, course.value)){
+        STUDENTS.push(std);
+        nowPage = Math.ceil(STUDENTS.length / pageLayout);
+        render(STUDENTS, nowPage);
+        fullName.value = email.value = age.value = course.value = "";
+        closeBtn.click();
+    }
 }
 
 addBtn.addEventListener("click",addToDataBase);

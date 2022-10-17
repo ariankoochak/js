@@ -6,7 +6,7 @@ function pageMaker(arr){
     let pass = 0;
     let paginationTemplate = `
             <li class="page-item">
-                <a class="page-link" href="#" tabindex="-1" id = "prev-page">Previous</a>
+                <a class="page-link ${(nowPage === 1) ? 'disabled' : ''}" href="#" tabindex="-1" id = "prev-page">Previous</a>
             </li>
     `;
     if(arr == STUDENTSFILTER)
@@ -20,7 +20,7 @@ function pageMaker(arr){
     }
     paginationTemplate += `
         <li class="page-item">
-            <a class="page-link" href="#" id = "next-page">Next</a>
+            <a class="page-link ${(nowPage === pageNum) ? 'disabled' : ''}" href="#" id = "next-page">Next</a>
         </li>
         <li class="page-item">
             <input type="text" class = "form-control mr-sm-2" id = "select-page">
@@ -35,10 +35,10 @@ function pageMaker(arr){
         render(arr, 1);
     });
     textPageLayout.value = pageLayout;
-    if (nowPage == 1)
-        document.getElementById("prev-page").classList.add("disabled");
-    if(nowPage == pageNum)
-        document.getElementById("next-page").classList.add("disabled");
+    // if (nowPage == 1)
+    //     document.getElementById("prev-page").classList.add("disabled");
+    // if(nowPage == pageNum)
+    //     document.getElementById("next-page").classList.add("disabled");
     document.getElementById("prev-page").addEventListener("click",function(){
         render(arr,--nowPage);
     });

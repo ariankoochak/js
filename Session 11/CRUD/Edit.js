@@ -20,16 +20,19 @@ function editDataBase(id){
 }
 
 function applyEdit(){
-    STUDENTS.map(function (std) {
-        if(std.id == editId){
-            std.name = selectedStundet.fullName.value;
-            std.email = selectedStundet.email.value;
-            std.age = selectedStundet.age.value;
-            std.course = selectedStundet.course.value;
-        }
-    });
-    render(STUDENTS,nowPage);
-    closeEditBtn.click();
+    const { fullName, email, age, course } = selectedStundet;
+    if (validationModals(fullName.value, email.value, age.value, course.value)) {
+        STUDENTS.map(function (std) {
+            if(std.id == editId){
+                std.name = fullName.value;
+                std.email = email.value;
+                std.age = age.value;
+                std.course = course.value;
+            }
+        });
+        render(STUDENTS,nowPage);
+        closeEditBtn.click();
+    }
 }
 
 

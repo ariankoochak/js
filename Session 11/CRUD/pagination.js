@@ -35,10 +35,6 @@ function pageMaker(arr){
         render(arr, 1);
     });
     textPageLayout.value = pageLayout;
-    // if (nowPage == 1)
-    //     document.getElementById("prev-page").classList.add("disabled");
-    // if(nowPage == pageNum)
-    //     document.getElementById("next-page").classList.add("disabled");
     document.getElementById("prev-page").addEventListener("click",function(){
         render(arr,--nowPage);
     });
@@ -55,7 +51,6 @@ function LayoutMaker(arr,pageNum){
     return exp;
 }
 
-
 function changePage(pageNum,pass, event){
     event.target.classList.add("disabled")
     nowPage = pageNum;
@@ -66,7 +61,3 @@ function changePage(pageNum,pass, event){
     else
         render(STUDENTS,pageNum);
 }
-
-
-
-

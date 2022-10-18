@@ -11,3 +11,6 @@
 .disabled {
     pointer-events: none;
 }
+#delete-search{
+    display: none;
+}

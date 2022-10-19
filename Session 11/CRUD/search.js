@@ -11,13 +11,18 @@ let deleteSearchBtn = document.getElementById("delete-search");
 
 function filterDataBase(){
     const { fullName, email, age, course } = search;
-    STUDENTSFILTER = STUDENTS.filter(function(std){
-        return (std.name == fullName.value || fullName.value == "") && (std.email == email.value || email.value == "") && (std.age == age.value || age.value == "") && (std.course == course.value || course.value == "")
-    });
-    deleteSearchBtn.style.display = "inline-Block";
-    render(STUDENTSFILTER,1);
-    fullName.value = email.value = age.value = course.value = "";
-    closeSearchBtn.click();
+    if(fullName.value || email.value || age.value || course.value){
+        STUDENTSFILTER = STUDENTS.filter(function(std){
+            return (std.name == fullName.value || fullName.value == "") && (std.email == email.value || email.value == "") && (std.age == age.value || age.value == "") && (std.course == course.value || course.value == "")
+        });
+        deleteSearchBtn.style.display = "inline-Block";
+        render(STUDENTSFILTER,1);
+        fullName.value = email.value = age.value = course.value = "";
+        closeSearchBtn.click();
+    }
+    else{
+        alert("please insert Something");
+    }
 }
 
 function deleteFilter(){

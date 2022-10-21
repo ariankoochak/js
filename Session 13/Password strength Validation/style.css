@@ -1,0 +1,23 @@
+.progress{
+    width: 50%;
+    margin: auto;
+    height: 25px;
+}
+
+.progress-bar{
+    display: none;
+}
+
+input{
+    margin-top: 20px;
+    display: inline-block;
+}
+
+#all{
+    margin-top: 20px;
+    text-align: center;
+}
+
+#prog{
+    display: none;
+}

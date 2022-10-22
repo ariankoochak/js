@@ -1,11 +1,17 @@
 let inp = document.getElementById("inp");
+let exp = document.querySelector("h2");
 
 function validation(){
     if (inp.value.length === 10) {
-        if(inp.value.match(/[0-9]{10}/)){
-            console.log(isNationalCode());
+        if(inp.value.match(/([0-9]{10})$/)){
+            isNationalCode();
+        }
+        else{
+            exp.innerHTML = "Please insert number";
         }
     }
+    else
+        exp.innerHTML = "";
 }
 
 function isNationalCode(){
@@ -23,15 +29,15 @@ function isNationalCode(){
         sum = sum % 11;
         if (sum < 2) {
             if (sum === national[9])
-                return true;
+                exp.innerHTML = "its National number!!";
             else
-                return false;
+                exp.innerHTML = "non National number!!";
         }
         else {
             if ((11 - sum) === national[9])
-                return true;
+                exp.innerHTML = "its National number!!";
             else
-                return false;
+                exp.innerHTML = "non National number!!";
         }
     }
 }

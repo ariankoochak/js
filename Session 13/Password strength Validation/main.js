@@ -13,23 +13,22 @@ function changeSit(sit,text){
     comment.textContent = text;
 }
 
-// function passValidation(){
-//     let pass = password.value;
-//     console.log(pass.length);
-//     console.log(pass.match(/[A-Za-z0-9]{1,}/m));
-//     if(pass.length > 0){
-//         if (!pass.match(/[a-zA-Z0-9.-_$*()#@!%/]/)){
-//             errorComment.textContent = `Please Use a-z A-Z 0-9 . - _ $ * ( ) # @ ! % /`;
-//         }
-//         else{
-//             errorComment.textContent = "";
-//             passChecker(pass);
-//         }
-//     }
-//     else{
-//         errorComment.textContent = "";
-//     }
-// }
+function passValidation(){
+    let pass = password.value;
+    if(pass.length > 0){
+        if (!pass.match(/((([A-Za-z0-9.-_$*()#@!%/])){1,})$/)){
+            changeSit(1,"ERROR");
+            errorComment.textContent = `Please Use a-z A-Z 0-9 . - _ $ * ( ) # @ ! % /`;
+        }
+        else{
+            errorComment.textContent = "";
+            passChecker(pass);
+        }
+    }
+    else{
+        errorComment.textContent = "";
+    }
+}
 
 function passChecker(pass){
     pass = password.value;
@@ -52,4 +51,4 @@ function passChecker(pass){
 
 
 
-password.addEventListener("keyup",passChecker);
+password.addEventListener("keyup",passValidation);

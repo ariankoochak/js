@@ -7,9 +7,13 @@ function render(){
         <div>
             <h2>${id}.${title}</h2>
             <p>${body}</p>
-            <h6>${userId}</h6>
+            <h6>${findUserName(userId)}</h6>
         </div>
         `;
     }).join("");
     root.innerHTML = template;
+}
+function findUserName(userId){
+    let user = USERS.find(function(user){return userId == user.id;});
+    return user.name;
 }

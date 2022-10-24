@@ -1,4 +1,4 @@
-
+let root = document.getElementById("root");
 
 function render(){
     let template = DATAS.map(function(data){

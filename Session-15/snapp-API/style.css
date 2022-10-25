@@ -1,0 +1,20 @@
+img{
+    width: 100px;
+}
+.card{
+    font-size: 10px;
+    width: 200px;
+    display: inline-block;
+    border: 1px solid;
+    text-align: center;
+}
+.rootings{
+    padding: 10px;
+    background-color: aqua;
+    margin: 10px;
+}
+
+#junk{
+    padding: 10px;
+    background-color: blueviolet;
+}

@@ -15,7 +15,7 @@ req.addEventListener("load",() => {
     // render(drink,"drink");
     // render(junk,"junk");
     for(item of data){
-        if(item.products){
+        if(item.type === "category"){
             render(item);
         }
     }

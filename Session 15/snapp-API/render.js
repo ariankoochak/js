@@ -1,6 +1,5 @@
 let mainRoot = document.getElementById("root");
 
-
 function splitPrice(price){
     price = String(price).split("");
     let counter = 1;

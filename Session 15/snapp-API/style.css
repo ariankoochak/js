@@ -1,8 +1,12 @@
 @font-face {
     font-family: Yekan;
     src: url(./fonts/Yekan.eot), url(./fonts/Yekan.ttf) format('truetype'), url(./fonts/Yekan.svg) format('svg');
-    font-weight: 600;
+    font-weight: 500;
     font-style: normal;
+}
+#Loading{
+    font-family: Arial, Helvetica, sans-serif;
+    direction: ltr;
 }
 body{
     font-family: Yekan;

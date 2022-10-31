@@ -1,15 +1,4 @@
-let card = $(".card");
-
 function render(){
-    // $(".card").each((id)=>{
-    //     let card = $(".card").children("div")[id];
-    //     let template = `
-    //     <h5 class="card-title">Card title</h5>
-    //     <a href="#" class="btn btn-primary">Go somewhere</a>
-    //     `;
-    //     card.innerHTML = template;
-    //     console.log(card);
-    // })
     PRICES.map((crypt) =>{
         const{id , name , price , img} = crypt;
         let template = `
@@ -19,7 +8,7 @@ function render(){
         <p></p>
         <button class="btn btn-primary" id = "${id}">show price</button>
         `;
-        card[id].innerHTML = template;
+        $(".card")[id].innerHTML = template;
     });
     $("button").on("click",(e)=>{
         let crypto = PRICES.find((crypt) => {

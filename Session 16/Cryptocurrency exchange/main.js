@@ -2,8 +2,9 @@ function splitPrice(price) {
     price = String(price).split("");
     let counter = 1;
     let i = price.length - 1;
-    if(price.indexOf(".") != -1){
-        i = price.indexOf(".") - 1;
+    let ind = price.indexOf(".")
+    if(ind != -1){
+        i = ind - 1;
     }
     for (; i >= 0; i--) {
         if (counter == 3 && i != 0) {

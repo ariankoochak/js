@@ -28,7 +28,7 @@ function render(){
         `;
         $(".card")[id].innerHTML = template;
     });
-    $("button").on("click",(e)=>{
+    $(".btn-primary").on("click",(e)=>{
         let crypto = PRICES.find((crypt) => {
             return crypt.id === Number($(e.target).attr("id"))
         })

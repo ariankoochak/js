@@ -35,8 +35,14 @@ function render(){
         })
         $.get("https://api.nobitex.ir/market/stats?srcCurrency=btc,eth,etc,usdt,ada,bch,ltc,bnb,eos,xlm,xrp,trx,doge,uni,link,dai,dot,shib,aave,ftm,matic,axs,mana,sand,avax,usdc,gmt,mkr,sol,atom,grt,bat,near,ape,qnt,chz,xmr,gala,busd,algo,pmn&dstCurrency=rls,usdt",(res,status) => {
             const {btc , eth ,doge , usdt,sol,shib} = res.global.binance; //bitcoin , etheruem , dogecoin , tether ,solona ,shiba
+            let sit = "";
+            if(crypto.price > eval(crypto.dataSymbol) && crypto.price != "-")
+                sit = "↓";
+            else if (crypto.price < eval(crypto.dataSymbol) && crypto.price != "-")
+                sit = "↑";
+            console.log(sit);
             crypto.price = eval(crypto.dataSymbol);
-            $(e.target).siblings()[1].innerHTML = `$${splitPrice(crypto.price)}`;
+            $(e.target).siblings()[1].innerHTML = `${sit}$${splitPrice(crypto.price)}`;
             $(e.target).html("Update Price");
         })
     });

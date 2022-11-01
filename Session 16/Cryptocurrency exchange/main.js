@@ -1,19 +1,3 @@
-
-function splitPrice(price){
-    price = String(price).split("");
-    let splitCounter = 1;
-    for(let i = price.indexOf(".")--;i > 0;i--){
-        if(splitCounter === 3){
-            price.splice(i,0,",");
-            splitCounter = 1;
-        }
-        else
-            splitCounter++;
-    }
-    return price;
-}
-
-
 function render(){
     PRICES.map((crypt) =>{
         const{id , name , price , img} = crypt;
@@ -34,7 +18,7 @@ function render(){
             const {btc , eth ,doge , usdt,sol,shib} = res.global.binance; //bitcoin , etheruem , dogecoin , tether ,solona ,shiba
             crypto.price = eval(crypto.dataSymbol);
         })
-        $(e.target).siblings()[1].innerHTML = `$${splitPrice(crypto.price)}`;
+        $(e.target).siblings()[1].innerHTML = `$${crypto.price}`;
         $(e.target).html("Update Price");
     });
 }

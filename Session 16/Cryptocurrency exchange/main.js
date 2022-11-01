@@ -14,12 +14,12 @@ function render(){
         let crypto = PRICES.find((crypt) => {
             return crypt.id === Number($(e.target).attr("id"))
         })
-        $.get("https://api.nobitex.ir/market/stats?srcCurrency=btc,eth,etc,usdt,ada,bch,ltc,bnb,eos,xlm,xrp,trx,doge,uni,link,dai,dot,shib,aave,ftm,matic,axs,mana,sand,avax,usdc,gmt,mkr,sol,atom,grt,bat,near,ape,qnt,chz,xmr,gala,busd,algo,pmn&dstCurrency=rls,usdt",(res) => {
+        $.get("https://api.nobitex.ir/market/stats?srcCurrency=btc,eth,etc,usdt,ada,bch,ltc,bnb,eos,xlm,xrp,trx,doge,uni,link,dai,dot,shib,aave,ftm,matic,axs,mana,sand,avax,usdc,gmt,mkr,sol,atom,grt,bat,near,ape,qnt,chz,xmr,gala,busd,algo,pmn&dstCurrency=rls,usdt",(res,status) => {
             const {btc , eth ,doge , usdt,sol,shib} = res.global.binance; //bitcoin , etheruem , dogecoin , tether ,solona ,shiba
             crypto.price = eval(crypto.dataSymbol);
+            $(e.target).siblings()[1].innerHTML = `$${crypto.price}`;
+            $(e.target).html("Update Price");
         })
-        $(e.target).siblings()[1].innerHTML = `$${crypto.price}`;
-        $(e.target).html("Update Price");
     });
 }
 render();

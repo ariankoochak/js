@@ -16,7 +16,6 @@ function splitPrice(price) {
     }
     return price.join("");
 }
-
 function render(){
     PRICES.map((crypt) =>{
         const{id , name , price , img} = crypt;
@@ -36,11 +35,20 @@ function render(){
         $.get("https://api.nobitex.ir/market/stats?srcCurrency=btc,eth,etc,usdt,ada,bch,ltc,bnb,eos,xlm,xrp,trx,doge,uni,link,dai,dot,shib,aave,ftm,matic,axs,mana,sand,avax,usdc,gmt,mkr,sol,atom,grt,bat,near,ape,qnt,chz,xmr,gala,busd,algo,pmn&dstCurrency=rls,usdt",(res,status) => {
             const {btc , eth ,doge , usdt,sol,shib} = res.global.binance; //bitcoin , etheruem , dogecoin , tether ,solona ,shiba
             let sit = "";
-            if(crypto.price > eval(crypto.dataSymbol) && crypto.price != "-")
+            if(crypto.price > eval(crypto.dataSymbol) && crypto.price != "-"){
+                $(e.target).siblings()[1].classList.remove("green-sit");
+                $(e.target).siblings()[1].classList.add("red-sit");
                 sit = "↓";
-            else if (crypto.price < eval(crypto.dataSymbol) && crypto.price != "-")
+            }
+            else if (crypto.price < eval(crypto.dataSymbol) && crypto.price != "-"){
+                $(e.target).siblings()[1].classList.remove("red-sit");
+                $(e.target).siblings()[1].classList.add("green-sit");
                 sit = "↑";
-            console.log(sit);
+            }
+            else if ($(e.target).siblings()[1].classList.contains("red-sit") || $(e.target).siblings()[1].classList.contains("green-sit")){
+                sit = $(e.target).siblings()[1].innerHTML.slice(0,1);
+            }
+            console.log(crypto.name+ " -> " + crypto.price);
             crypto.price = eval(crypto.dataSymbol);
             $(e.target).siblings()[1].innerHTML = `${sit}$${splitPrice(crypto.price)}`;
             $(e.target).html("Update Price");

@@ -1,4 +1,5 @@
 let root = document.querySelector("h2");
+
 async function getPeople(){
     let give = await fetch("https://swapi.dev/api/people/1/");
     give = await give.json();

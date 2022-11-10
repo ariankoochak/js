@@ -1,0 +1,11 @@
+/* #client{
+    display: none;
+} */
+
+#admin{
+    display: none;
+}
+
+a{
+    cursor: pointer;
+}

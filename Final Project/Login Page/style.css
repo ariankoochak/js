@@ -95,3 +95,8 @@ button:hover{
     background-color: #6f41b9;
     transition: ease-in-out .2s ;
 }
+
+p{
+    color:#c41212;
+    display: none;
+}

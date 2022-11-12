@@ -4,26 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <title>ورود به حساب کاربری</title>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
     <script src="./main.js" defer></script>
     <script src="../ref_source/jQuery.js"></script>
 </head>
 
 <body>
-    <section id="client">
-        <h3>ورود به حساب کاربری</h3>
-        <input type="text" name="username" id="client__login__username" placeholder="نام کاربری">
-        <input type="password" name="password" id="client__login__password" placeholder="رمز عبور">
-        <button id="client__submit">ورود</button>
-        <a id="change-login-client">ورود به پنل کسب و کار</a>
-    </section>
-    <div id="admin">
-        <h3>پنل مدیریت کسب و کار</h3>
-        <input type="text" name="username" id="admin__login__username" placeholder="نام کاربری">
-        <input type="password" name="password" id="admin__login__password" placeholder="رمز عبور">
-        <button id="admin__submit">ورود</button>
-        <a id="change-login-admin">ورود به حساب کاربری عادی</a>
+    <div id="left">
+        <img id="login-image" src="../images/client-login-image.jpg" alt="">
+    </div>
+    <div id="right">
+        <div class="container">
+            <section id="client">
+                <h3>ورود به حساب کاربری</h3>
+                <input type="text" name="username" id="client__login__username" placeholder="نام کاربری"><br>
+                <input type="password" name="password" id="client__login__password" placeholder="رمز عبور"><br>
+                <button id="client__submit">ورود</button><br>
+                <a id="change-login-client">ورود به پنل کسب و کار</a>
+            </section>
+            <div id="admin">
+                <h3>پنل مدیریت کسب و کار</h3>
+                <input type="text" name="username" id="admin__login__username" placeholder="نام کاربری"><br>
+                <input type="password" name="password" id="admin__login__password" placeholder="رمز عبور"><br>
+                <button id="admin__submit">ورود</button><br>
+                <a id="change-login-admin">ورود به حساب کاربری عادی</a>
+            </div>
+        </div>
     </div>
 </body>
 

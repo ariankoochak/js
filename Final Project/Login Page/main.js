@@ -18,8 +18,10 @@ $("#client__submit").on("click", () => {
 $("#change-login-client").on("click",()=>{
     $("#admin").show();
     $("#client").hide();
+    $("#login-image").attr("src","../images/admin-login-image.jpg");
 })
 $("#change-login-admin").on("click", () => {
     $("#client").show();
     $("#admin").hide();
+    $("#login-image").attr("src","../images/client-login-image.jpg");
 })

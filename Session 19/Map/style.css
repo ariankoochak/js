@@ -1,6 +1,19 @@
 #map {
     position: absolute;
     top: 0;
+    left:0;
     bottom: 0;
     width: 50%;
+}
+
+path{
+    cursor: pointer;
+}
+
+.mapboxgl-popup-close-button{
+    display: none;
+}
+
+.mapboxgl-popup-content{
+    padding: 5px;
 }

@@ -13,12 +13,14 @@
     center: [51.3547, 35.7219], // starting position [lng, lat]
     zoom: 10.5, // starting zoom
 });
+ 
+
 map.on('style.load', () => {
     map.setFog({}); // Set the default atmosphere style
 });
 
 
-const seyedKhandanPopUp = new mapboxgl.Popup({ offset: 25 }).setText(
+const seyedKhandanPopUp = new mapboxgl.Popup({ offset: 25}).setText(
     'مجتمع فنی شعبه ی سیدخندان'
 );
 const saadatAbadPopUp = new mapboxgl.Popup({ offset: 25 }).setText(

@@ -20,7 +20,7 @@ map.on('style.load', () => {
 });
 
 
-const seyedKhandanPopUp = new mapboxgl.Popup({ offset: 25}).setText(
+const seyedKhandanPopUp = new mapboxgl.Popup({ offset: 25,class:"seyed"}).setText(
     'مجتمع فنی شعبه ی سیدخندان'
 );
 const saadatAbadPopUp = new mapboxgl.Popup({ offset: 25 }).setText(

@@ -1,29 +1,43 @@
 (function($,H){
     let POSTS = {
-        doms: (cnfg)=>{
-         this.config = cnfg;   
-         POSTS.clickButton();
+        doms: function(cnfg) {
+            this.config = cnfg;   
+            this.clicks();
+            this.setupTemplate();
         },
-        clickButton : ()=>{
-            this.config.button.on("click",()=>{
-                let res = POSTS.getData("https://jsonplaceholder.ir/posts");
-                console.log(res);
-            })
+        clicks: function() {
+            this.config.button.on("click",this.clickButton);
+            this.config.root.on("click","div",this.clickPost);
         },
-        getData : async (url)=>{
-            return await POSTS.ajaxReq(url);
+        clickButton : function(){
+            POSTS.renderOnRoot("https://jsonplaceholder.ir/posts");
         },
-        ajaxReq : (url)=>{
+        clickPost : function(){
+            let id = $(this).data("id");
+            POSTS.renderOnRoot(`https://jsonplaceholder.ir/posts/${id}`)
+        },
+        setupTemplate : function(){
+            this.template = H.compile(this.config.template.html());
+        },
+        renderOnRoot : function(url){
             $.ajax({
                 url : url,
-                success : res =>{
-                    return res;
+                success : function (res){
+                    if(res[0])
+                        POSTS.config.root.html(POSTS.template({result : res}));
+                    else
+                        POSTS.config.root.html(POSTS.template({ result: [res] }));
                 }
             })
-        },
+        }
     }
+
     POSTS.doms({
         button : $("button"),
         root : $("#root"),
+        template : $("#post"),
+
     })
+
+
 })(jQuery,Handlebars)

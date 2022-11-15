@@ -6,7 +6,19 @@
         },
         clickButton : ()=>{
             this.config.button.on("click",()=>{
-                console.log("CLicked")
+                let res = POSTS.getData("https://jsonplaceholder.ir/posts");
+                console.log(res);
+            })
+        },
+        getData : async (url)=>{
+            return await POSTS.ajaxReq(url);
+        },
+        ajaxReq : (url)=>{
+            $.ajax({
+                url : url,
+                success : res =>{
+                    return res;
+                }
             })
         },
     }

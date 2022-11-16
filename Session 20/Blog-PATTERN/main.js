@@ -6,10 +6,10 @@
             this.setClicks();
         },
         setClicks: function() {
-            this.config.allPostsRenderButton.on("click",this.clickAllPostsRenderButton);
+            this.config.renderButton.on("click",this.clickRenderButton);
             this.config.root.on("click", "div", (e) => {this.clickPost(e)});
         },
-        clickAllPostsRenderButton : function(){
+        clickRenderButton : function(){
             POSTS.reqAndRender("https://jsonplaceholder.ir/posts");
         },
         clickPost : function(e){
@@ -39,7 +39,7 @@
     }
 
     POSTS.doms({
-        allPostsRenderButton : $("#render-button"),
+        renderButton : $("#render-button"),
         root : $("#root"),
         template : $("#post"),
     })

@@ -11,14 +11,15 @@
     <title>Blog-pattern</title>
 </head>
 <body>
-    <button>Render</button>
+    <button id="render-button">Render</button>
     <section id="root"></section>
     <script type="x-tmpl-handlebars" id="post">
         <section>
             {{#each result}}
-            <div data-id="{{id}}" data-userId="{{userId}}">
+            <div data-id="{{id}}">
                 <h1> {{title}} </h1>
                 <p> {{body}} </p>
+                <button id="bloger-button"  data-userId="{{userId}}">بقیه ی پست های این نویسنده</button>
             </div>
             {{/each}}    
         </section>

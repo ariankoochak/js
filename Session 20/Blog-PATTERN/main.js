@@ -4,24 +4,30 @@
             this.config = cnfg;   
             this.setupTemplate();
             this.setClicks();
-            console.log(history);
         },
         setClicks: function() {
             this.config.renderButton.on("click",this.clickRenderButton);
             this.config.root.on("click", "div", (e) => {this.clickPost(e)});
         },
+        goUrl : function(title,url){
+            let obj = {
+                title: title,
+                url: url,
+            }
+            history.pushState(obj, obj.title, obj.url);
+        },
         clickRenderButton : function(){
-            // history.pushState({}, "Blog", "");
+            POSTS.goUrl("title", "posts");
             POSTS.reqAndRender("https://jsonplaceholder.ir/posts");
         },
         clickPost : function(e){
             if($(e.target).data("userid")){
-                // history.pushState({}, "user posts", "");
+                POSTS.goUrl("title","userPosts");
                 let userID = $(e.target).data("userid");
                 POSTS.reqAndRender(`https://jsonplaceholder.ir/users/${userID}/posts`);
             }
             else{
-                // history.pushState({}, "post", "");
+                POSTS.goUrl("title", "post");
                 let id = $(e.currentTarget).data("id");
                 POSTS.reqAndRender(`https://jsonplaceholder.ir/posts/${id}`)
             }

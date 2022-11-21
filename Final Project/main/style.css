@@ -1,0 +1,26 @@
+.cpu{
+    position: absolute;
+    width: 4.5%;
+    top: 19.2%;
+    left: 13.55%;
+}
+
+.case{
+    position: absolute;
+    width: 42%;
+}
+
+.gpu{
+    position: absolute;
+    top: 37%;
+    left: 5%;
+    width: 20%;
+}
+
+.motherboard{
+    position: absolute;
+    width: 20%;
+    top: 10%;
+    left: 5%;
+}
+

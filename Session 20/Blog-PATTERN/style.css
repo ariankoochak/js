@@ -1,7 +1,11 @@
 div {
     margin: 1rem;
     padding: 1rem;
-    background: #ddd;
+    background: #353535;
+    color: white;
     border-radius: 8px;
     cursor: pointer;
+}
+body{
+    background-color: black;
 }

@@ -252,26 +252,67 @@ let GPUS=[
 
 let RAMS=[
     {
-        en_name : "",
-        fa_name : "",
-        company : "Geil",
+        id : 1,
+        en_name : "Crucial Ram",
+        fa_name : "رم کروشیال DDR4 16GB",
+        company : "Crucial",
         ramFrequency : 2400,
         ramType : 4,
         ramAllStorage : 16,
-        ramSluts : 2,   
+        ramSluts : 2,
+        src : {
+            Show : "./images/RAM/Ram-Show.png",
+            Small: "./images/RAM/Ram-Small.png",
+        },
+        price : "2,170,000",   
     },
 ]
 
 let CASES=[
     {
-        en_name:"",
-        fa_name:"",
+        id : 1,
+        en_name:"Green Griffin G6",
+        fa_name:"کیس گرین مدل G6",
         company: "green",
         caseForm : "M",
         caseBiggerFormFactorSupport : "ATX",
-        fansNum : 2,
+        fansNum : 3,
         intelTAC : true,
-        caseMaxGpuSize : 50,
+        src:{
+            Show:"./images/Case/Green-G6-Show.jpg",
+            Small:"./images/Case/Green-G6-Small.jpg",
+        },
+        Price : "2,840,000",
+    },
+    {
+        id : 2,
+        en_name:"Lian Li O11 Dynamic EVO W",
+        fa_name:"کیس لیان لی مدل O11 Dynamic EVO W",
+        company: "LianLi",
+        caseForm : "H",
+        caseBiggerFormFactorSupport : "ATX",
+        fansNum : 4,
+        intelTAC : true,
+        src:{
+            Show:"./images/Case/LianLi-Show.jpg",
+            Small:"./images/Case/LianLi-Small.jpg",
+        },
+        Price : "6,570,000",
+    },
+    {
+        id : 3,
+        en_name:"Cooler Master MASTERBOX Q500L",
+        fa_name:"کیس کامپیوتر کولر مستر مدل MASTERBOX Q500L",
+        company: "CoolerMaster",
+        caseForm : "M",
+        caseBiggerFormFactorSupport : "ATX",
+        fansNum : 0,
+        intelTAC : false,
+        src:{
+            Show:"./images/Case/CoolerMaster/Show",
+            Small:"./images/Case/CoolerMaster/Small",
+        },
+        Price : "2,240,000",
     },
 ]
 

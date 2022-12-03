@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="../ref_source/jQuery.js"></script>
+    <script src="main.js" defer></script>
+    <title>Admin Panel</title>
+</head>
+<body>
+    <button id="cpu" state="cpu" why="state">cpu</button>
+    <button id="mother-board" state="motherBoard" why="state">motherBoard</button>
+    <button id="gpu" state="gpu" why="state">gpu</button>
+    <button id="case" state="case" why="state">case</button>
+    <button id="ram" state="ram" why="state">ram</button>
+    <button id="ssd" state="ssd" why="state">ssd</button>
+    <button id="hdd" state="hdd" why="state">hdd</button>
+    <button id="power" state="power" why="state">power</button>
+
+    <!-- CPU State -->
+    <div id="cpu-state">
+        <input type="text" name="" id="" placeholder="fa_name"><br>
+        <input type="text" name="" id="" placeholder="en_name"><br>
+        <input type="text" name="" id="" placeholder="company"><br>
+        <input type="text" name="" id="" placeholder="socket"><br>
+        <input type="text" name="" id="" placeholder="haveGPU(zero:false , one:true)"><br>
+        <input type="text" name="" id="" placeholder="benchmark"><br>
+        <input type="text" name="" id="" placeholder="imageSource(show)"><br>
+        <input type="text" name="" id="" placeholder="imageSource(small)"><br>
+        <input type="text" name="" id="" placeholder="price"><br>
+        <button why="submit">submit</button>
+    </div>
+
+    <!-- MotherBoard State -->
+    <div id="motherBoard-state">
+        <input type="text" name="" id="" placeholder="fa_name"><br>
+        <input type="text" name="" id="" placeholder="en_name"><br>
+        <input type="text" name="" id="" placeholder="company"><br>
+        <input type="text" name="" id="" placeholder="ramSupportCount"><br>
+        <input type="text" name="" id="" placeholder="ramSupportType"><br>
+        <input type="text" name="" id="" placeholder="ramSupportFrequency"><br>
+        <input type="text" name="" id="" placeholder="cpuSocket"><br>
+        <input type="text" name="" id="" placeholder="chipset"><br>
+        <input type="text" name="" id="" placeholder="formFactor"><br>
+        <input type="text" name="" id="" placeholder="ramSluts"><br>
+        <input type="text" name="" id="" placeholder="m2Sluts"><br>
+        <input type="text" name="" id="" placeholder="MBsataNum"><br>
+        <input type="text" name="" id="" placeholder="sourceImage(show)"><br>
+        <input type="text" name="" id="" placeholder="sourceImage(small)"><br>
+        <input type="text" name="" id="" placeholder="price"><br>
+        <button why="submit">submit</button>
+    </div>
+
+    <!-- GPU State -->
+    <div id="gpu-state">
+        <input type="text" name="" id="" placeholder="fa_name"><br>
+        <input type="text" name="" id="" placeholder="en_name"><br>
+        <input type="text" name="" id="" placeholder="company"><br>
+        <input type="text" name="" id="" placeholder="chipsetCompany"><br>
+        <input type="text" name="" id="" placeholder="chipset"><br>
+        <input type="text" name="" id="" placeholder="benchmark"><br>
+        <input type="text" name="" id="" placeholder="HDMIport"><br>
+        <input type="text" name="" id="" placeholder="DPport"><br>
+        <input type="text" name="" id="" placeholder="VGAport"><br>
+        <input type="text" name="" id="" placeholder="DGport"><br>
+        <input type="text" name="" id="" placeholder="sourceImage(show)"><br>
+        <input type="text" name="" id="" placeholder="sourceImage(small)"><br>
+        <input type="text" name="" id="" placeholder="gpuStorage"><br>
+        <input type="text" name="" id="" placeholder="price"><br>
+        <button why="submit">submit</button>
+    </div>
+
+    <!-- Case State -->
+    <div id="case-state">
+        <input type="text" name="" id="" placeholder="fa_name"><br>
+        <input type="text" name="" id="" placeholder="en_name"><br>
+        <input type="text" name="" id="" placeholder="company"><br>
+        <input type="text" name="" id="" placeholder="caseForm"><br>
+        <input type="text" name="" id="" placeholder="CaseBiggerFormFactorSupport"><br>
+        <input type="text" name="" id="" placeholder="fansNum"><br>
+        <input type="text" name="" id="" placeholder="IntelTAC(zero:false , one:true)"><br>
+        <input type="text" name="" id="" placeholder="sourceImage(show)"><br>
+        <input type="text" name="" id="" placeholder="sourceImage(small)"><br>
+        <input type="text" name="" id="" placeholder="price"><br>
+        <button why="submit">submit</button>
+    </div>
+
+    <!-- RAM State -->
+    <div id="ram-state">
+        <input type="text" name="" id="" placeholder="fa_name"><br>
+        <input type="text" name="" id="" placeholder="en_name"><br>
+        <input type="text" name="" id="" placeholder="company"><br>
+        <input type="text" name="" id="" placeholder="ramFrequency"><br>
+        <input type="text" name="" id="" placeholder="ramType"><br>
+        <input type="text" name="" id="" placeholder="ramAllStorage"><br>
+        <input type="text" name="" id="" placeholder="ramSluts"><br>
+        <input type="text" name="" id="" placeholder="sourceImage(show)"><br>
+        <input type="text" name="" id="" placeholder="sourceImage(small)"><br>
+        <input type="text" name="" id="" placeholder="price"><br>
+        <button why="submit">submit</button>
+    </div>
+
+    <!-- SSD State -->
+    <div id="ssd-state">
+        <input type="text" name="" id="" placeholder="fa_name"><br>
+        <input type="text" name="" id="" placeholder="en_name"><br>
+        <input type="text" name="" id="" placeholder="company"><br>
+        <input type="text" name="" id="" placeholder="storage"><br>
+        <input type="text" name="" id="" placeholder="ssdType"><br>
+        <input type="text" name="" id="" placeholder="price"><br>
+        <button why="submit">submit</button>
+    </div>
+
+    <!-- HDD State -->
+    <div id="hdd-state">
+        <input type="text" name="" id="" placeholder="fa_name"><br>
+        <input type="text" name="" id="" placeholder="en_name"><br>
+        <input type="text" name="" id="" placeholder="company"><br>
+        <input type="text" name="" id="" placeholder="storage"><br>
+        <input type="text" name="" id="" placeholder="hddForm"><br>
+        <input type="text" name="" id="" placeholder="price"><br>
+        <button why="submit">submit</button>
+    </div>
+    
+    <!-- POWER State -->
+    <div id="power-state">
+        <input type="text" name="" id="" placeholder="fa_name"><br>
+        <input type="text" name="" id="" placeholder="en_name"><br>
+        <input type="text" name="" id="" placeholder="company"><br>
+        <input type="text" name="" id="" placeholder="watt"><br>
+        <input type="text" name="" id="" placeholder="module"><br>
+        <input type="text" name="" id="" placeholder="form"><br>
+        <input type="text" name="" id="" placeholder="powerSataConnectorNum"><br>
+        <input type="text" name="" id="" placeholder="price"><br>
+        <button why="submit">submit</button>
+    </div>
+</body>
+</html>

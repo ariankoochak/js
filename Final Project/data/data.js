@@ -325,6 +325,7 @@ let POWERS=[
         module : "N",
         Form : "normal",
         powerSataConnectorNum : 4,
+        price : "",
     },
 ]
 
@@ -344,7 +345,6 @@ let HDDS=[
         fa_name:"",
         company:"WD",
         storage:1000,
-        hddType: "Blue",
         hddForm : 3.5,
     },
 ]

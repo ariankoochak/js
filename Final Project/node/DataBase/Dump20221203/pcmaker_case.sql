@@ -19,10 +19,10 @@
 -- Table structure for table `case`
 --
 
-DROP TABLE IF EXISTS `case`;
+DROP TABLE IF EXISTS `PCcase`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `case` (
+CREATE TABLE `PCcase` (
   `id` int NOT NULL AUTO_INCREMENT,
   `en_name` varchar(45) NOT NULL,
   `fa_name` varchar(45) NOT NULL,
@@ -42,10 +42,10 @@ CREATE TABLE `case` (
 -- Dumping data for table `case`
 --
 
-LOCK TABLES `case` WRITE;
+LOCK TABLES `PCcase` WRITE;
 /*!40000 ALTER TABLE `case` DISABLE KEYS */;
 /*!40000 ALTER TABLE `case` ENABLE KEYS */;
-UNLOCK TABLES;
+UNLOCK TABLE
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;

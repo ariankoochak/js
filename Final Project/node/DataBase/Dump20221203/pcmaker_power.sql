@@ -19,10 +19,10 @@
 -- Table structure for table `power`
 --
 
-DROP TABLE IF EXISTS `power`;
+DROP TABLE IF EXISTS `PCpower`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `power` (
+CREATE TABLE `PCpower` (
   `id` int NOT NULL AUTO_INCREMENT,
   `en_name` varchar(45) NOT NULL,
   `fa_name` varchar(45) NOT NULL,
@@ -39,7 +39,7 @@ CREATE TABLE `power` (
 -- Dumping data for table `power`
 --
 
-LOCK TABLES `power` WRITE;
+LOCK TABLES `PCpower` WRITE;
 /*!40000 ALTER TABLE `power` DISABLE KEYS */;
 /*!40000 ALTER TABLE `power` ENABLE KEYS */;
 UNLOCK TABLES;

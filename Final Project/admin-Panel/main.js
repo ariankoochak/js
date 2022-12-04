@@ -1,7 +1,4 @@
 (function($){
-    // $('button').each(function(index,button){
-        
-    // })
     let ROOT={
         nowInput : "",
         start: function(cnfg){
@@ -35,7 +32,6 @@
                     that.PrepareInput();
                 })
             });
-
         },
 
         PrepareInput:function(){
@@ -61,4 +57,4 @@
         submitButtons : $('[why=submit]'),
     })
 
-})(jQuery)
+})(jQuery);

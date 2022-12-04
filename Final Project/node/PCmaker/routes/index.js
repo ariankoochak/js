@@ -2,14 +2,16 @@
 // /* GET home page. */
 // router.get('/', function(req, res, next) {
 
+const { json } = require('express');
+
 // });
 (function(){
     var express = require('express');
     var router = express.Router();
-    var mysql = require('mysql');
-
+    var serverAccess = require('../bin/database.js');
 
     let API={
+
         urls: function(cnfg){
             this.config = cnfg;
             this.PrepareLinks();
@@ -20,46 +22,59 @@
                 this.PrepareReq(this.config[url], "GET");
                 this.PrepareReq(this.config[url]+'/:id', "GET");
                 this.PrepareReq(this.config[url], "POST");
-                this.PrepareReq(this.config[url] + '/:id', "POST");
             }
         },
         PrepareReq: function(url,mehtod){
-            let that = this;
+            const that = this;
+            let table = this.findPiece(url);
             switch(mehtod){
                 case "GET":
                     router.get(url, function (req, res, next) {
-                        if(req.params.id){
-                            let result = that.sendGet();
-                            res.send(req.params.id + " " + result);
-                        }
-                        else{
-                            let result = that.sendGet();
-                            res.send(result);
-                        }
+                        if(req.params.id)
+                            that.connectToServer(`SELECT * FROM ${table} WHERE id=${req.params.id}`, result => res.send(result))
+                        else
+                            that.connectToServer(`SELECT * FROM ${table}`,result=>res.send(result))
                     });
                     break;
                 case "POST":
                     router.post(url, function (req, res, next) {
-                        if (req.params.id) {
-                            let result = that.sendPost();
-                            res.send(req.params.id + " " + result);
+                        let reqQuery = `INSERT INTO ${table} (`;
+                        let obj = req.query;
+                        for(let key in obj){
+                            if(key !== 'price')
+                                reqQuery += `${key},`
+                            else
+                                reqQuery += `${key}) values (`
                         }
-                        else {
-                            let result = that.sendPost();
-                            res.send(result);
+                        for(let key in obj){
+                            if (key !== 'price')
+                                reqQuery += `'${obj[key]}',`
+                            else
+                                reqQuery += `'${obj[key]}')`
                         }
+                        that.connectToServer(reqQuery, result => res.send(result));
                     });
                     break;
             }
         },
-        sendGet: function(){
-            return "Get its Work";
+
+        findPiece: function(url){
+            url = url.split('/:');
+            switch(url[0]){
+                case '/cpu':            return 'PCcpu'
+                case '/motherBoard':    return 'PCmotherboard'
+                case '/ram':            return 'PCram'
+                case '/gpu':            return 'PCgpu'
+                case '/ssd':            return 'PCssd'
+                case '/case':           return 'PCcase'
+                case '/hdd':            return 'PChdd'
+                case '/power':          return 'PCpower'
+            }
         },
-        sendPost: function(){
-            return "Post its Work!";
-        },
-        connectToServer: function(){
-            return "connectToServer";
+        connectToServer: function(reqQuery,callback){
+            serverAccess.query(reqQuery,function(err,result){
+                callback(result);
+            });
         },
     }
     

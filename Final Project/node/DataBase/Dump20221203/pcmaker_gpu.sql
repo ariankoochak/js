@@ -19,10 +19,10 @@
 -- Table structure for table `gpu`
 --
 
-DROP TABLE IF EXISTS `gpu`;
+DROP TABLE IF EXISTS `PCgpu`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `gpu` (
+CREATE TABLE `PCgpu` (
   `id` int NOT NULL AUTO_INCREMENT,
   `en_name` varchar(45) NOT NULL,
   `fa_name` varchar(45) NOT NULL,
@@ -46,7 +46,7 @@ CREATE TABLE `gpu` (
 -- Dumping data for table `gpu`
 --
 
-LOCK TABLES `gpu` WRITE;
+LOCK TABLES `PCgpu` WRITE;
 /*!40000 ALTER TABLE `gpu` DISABLE KEYS */;
 /*!40000 ALTER TABLE `gpu` ENABLE KEYS */;
 UNLOCK TABLES;

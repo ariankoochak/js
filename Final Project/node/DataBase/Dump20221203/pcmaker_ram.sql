@@ -19,10 +19,10 @@
 -- Table structure for table `ram`
 --
 
-DROP TABLE IF EXISTS `ram`;
+DROP TABLE IF EXISTS `PCram`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `ram` (
+CREATE TABLE `PCram` (
   `id` int NOT NULL AUTO_INCREMENT,
   `en_name` varchar(45) NOT NULL,
   `fa_name` varchar(45) NOT NULL,
@@ -42,7 +42,7 @@ CREATE TABLE `ram` (
 -- Dumping data for table `ram`
 --
 
-LOCK TABLES `ram` WRITE;
+LOCK TABLES `PCram` WRITE;
 /*!40000 ALTER TABLE `ram` DISABLE KEYS */;
 /*!40000 ALTER TABLE `ram` ENABLE KEYS */;
 UNLOCK TABLES;

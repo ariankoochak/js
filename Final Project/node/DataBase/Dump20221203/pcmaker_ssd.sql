@@ -19,15 +19,15 @@
 -- Table structure for table `ssd`
 --
 
-DROP TABLE IF EXISTS `ssd`;
+DROP TABLE IF EXISTS `PCssd`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `ssd` (
+CREATE TABLE `PCssd` (
   `id` int NOT NULL AUTO_INCREMENT,
   `en_name` varchar(45) NOT NULL,
   `fa_name` varchar(45) NOT NULL,
   `company` varchar(45) NOT NULL,
-  `storage` int NOT NULL,
+  `SSDstorage` int NOT NULL,
   `ssdType` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -37,7 +37,7 @@ CREATE TABLE `ssd` (
 -- Dumping data for table `ssd`
 --
 
-LOCK TABLES `ssd` WRITE;
+LOCK TABLES `PCssd` WRITE;
 /*!40000 ALTER TABLE `ssd` DISABLE KEYS */;
 /*!40000 ALTER TABLE `ssd` ENABLE KEYS */;
 UNLOCK TABLES;

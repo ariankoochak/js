@@ -19,15 +19,15 @@
 -- Table structure for table `hdd`
 --
 
-DROP TABLE IF EXISTS `hdd`;
+DROP TABLE IF EXISTS `PChdd`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `hdd` (
+CREATE TABLE `PChdd` (
   `id` int NOT NULL AUTO_INCREMENT,
   `en_name` varchar(45) NOT NULL,
   `fa_name` varchar(45) NOT NULL,
   `company` varchar(45) NOT NULL,
-  `storage` int NOT NULL,
+  `HDDstorage` int NOT NULL,
   `hddType` varchar(45) NOT NULL,
   `hddForm` int NOT NULL,
   PRIMARY KEY (`id`)
@@ -38,7 +38,7 @@ CREATE TABLE `hdd` (
 -- Dumping data for table `hdd`
 --
 
-LOCK TABLES `hdd` WRITE;
+LOCK TABLES `PChdd` WRITE;
 /*!40000 ALTER TABLE `hdd` DISABLE KEYS */;
 /*!40000 ALTER TABLE `hdd` ENABLE KEYS */;
 UNLOCK TABLES;

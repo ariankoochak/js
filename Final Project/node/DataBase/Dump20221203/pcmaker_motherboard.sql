@@ -19,10 +19,10 @@
 -- Table structure for table `motherboard`
 --
 
-DROP TABLE IF EXISTS `motherboard`;
+DROP TABLE IF EXISTS `PCmotherboard`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `motherboard` (
+CREATE TABLE `PCmotherboard` (
   `id` int NOT NULL AUTO_INCREMENT,
   `en_name` varchar(45) NOT NULL,
   `fa_name` varchar(45) NOT NULL,
@@ -47,7 +47,7 @@ CREATE TABLE `motherboard` (
 -- Dumping data for table `motherboard`
 --
 
-LOCK TABLES `motherboard` WRITE;
+LOCK TABLES `PCmotherboard` WRITE;
 /*!40000 ALTER TABLE `motherboard` DISABLE KEYS */;
 /*!40000 ALTER TABLE `motherboard` ENABLE KEYS */;
 UNLOCK TABLES;

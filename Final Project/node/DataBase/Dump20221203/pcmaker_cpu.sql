@@ -19,15 +19,15 @@
 -- Table structure for table `cpu`
 --
 
-DROP TABLE IF EXISTS `cpu`;
+DROP TABLE IF EXISTS `PCcpu`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `cpu` (
+CREATE TABLE `PCcpu` (
   `id` int NOT NULL AUTO_INCREMENT,
   `en_name` varchar(45) NOT NULL,
   `fa_name` varchar(45) NOT NULL,
   `company` varchar(45) NOT NULL,
-  `socket` varchar(45) NOT NULL,
+  `cpu_socket` varchar(45) NOT NULL,
   `haveGPU` tinyint NOT NULL,
   `benchmark` int NOT NULL,
   `showIMG` varchar(45) NOT NULL,
@@ -42,7 +42,7 @@ CREATE TABLE `cpu` (
 -- Dumping data for table `cpu`
 --
 
-LOCK TABLES `cpu` WRITE;
+LOCK TABLES `PCcpu` WRITE;
 /*!40000 ALTER TABLE `cpu` DISABLE KEYS */;
 /*!40000 ALTER TABLE `cpu` ENABLE KEYS */;
 UNLOCK TABLES;

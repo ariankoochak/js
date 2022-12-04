@@ -2,7 +2,7 @@
 // /* GET home page. */
 // router.get('/', function(req, res, next) {
 
-const { json } = require('express');
+const { json, application } = require('express');
 
 // });
 (function(){
@@ -73,6 +73,7 @@ const { json } = require('express');
         },
         connectToServer: function(reqQuery,callback){
             serverAccess.query(reqQuery,function(err,result){
+                console.log(err);
                 callback(result);
             });
         },

@@ -36,10 +36,13 @@
 
         PrepareInput:function(){
             let inputs = $(`#${this.nowInput}-state > input`);
-            let url = `localhost:3000/${this.nowInput}/`;
+            let url = `localhost:3000/${this.nowInput}/?`;
             inputs.each(function(index,input){
                 if(input.value){
-                    url += input.value + '/';
+                    let name = $(input).attr('placeholder');
+                    url += name+'='+input.value;
+                    if(name !== 'price')
+                        url += '&';
                     input.value = '';
                 }
             })
@@ -47,7 +50,10 @@
         },
 
         sendToBack: function(url){
-            console.log(url);
+            $.post(url,(res,status)=>{
+                console.log(res);
+                console.log(status);
+            });
         }
     }
 

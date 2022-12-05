@@ -3,6 +3,7 @@
 // router.get('/', function(req, res, next) {
 
 const { json, application } = require('express');
+const { threadId } = require('../bin/database.js');
 
 // });
 (function(){
@@ -17,12 +18,17 @@ const { json, application } = require('express');
             this.PrepareLinks();
         },
         PrepareLinks: function(){
-            this.PrepareReq('/', "GET");
             for (url in this.config) {
+                this.reqTest();
                 this.PrepareReq(this.config[url], "GET");
                 this.PrepareReq(this.config[url]+'/:id', "GET");
                 this.PrepareReq(this.config[url], "POST");
             }
+        },
+        reqTest: function(){
+            router.get('/',function(req,res){
+                res.send("server its online");
+            })
         },
         PrepareReq: function(url,mehtod){
             const that = this;

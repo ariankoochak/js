@@ -17,7 +17,7 @@ let MOTHERBOARDS=[
         MBsataNum: 3,
         price : "1,628,000",
         src:{
-            show : "./images/MotherBoard/Asus-H310-Show.png",
+            show : "./images/motherboard/Asus-H310-Show.png",
             small : "./images/MotherBoard/Asus-H310-Small.png",
         }
     },
@@ -121,7 +121,7 @@ let CPUS=[
         haveGPU: false,
         benchmark : 12369,
         src:{
-            show:"./images/CPU/i5-10400f-Show.png",
+            show:"i5-10400f-Show.png",
             small:"./images/CPU/i5-10400f-Show.png",
         },
         price:"3,778,000",

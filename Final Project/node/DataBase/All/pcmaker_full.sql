@@ -204,7 +204,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `pcmotherboard` WRITE;
 INSERT INTO `pcmotherboard` (`id`, `en_name`, `fa_name`, `company`, `ramSupportCount`, `ramTypes`, `ramFrequency`, `cpuSocket`, `chipset`, `formFactor`, `ramSluts`, `m2Sluts`, `MBsataNum`, `showIMG`, `smallIMG`, `price`) VALUES 
-	(1,'Asus Motherboard PRIME B550M-A','مادربرد ایسوس مدل PRIME B550M-A','Asus',128,4,4600,'AM4','B550','microATX',4,2,4,'motherboard/Biostasr-B550-Show.png','motherboard/Biostasr-B550-Small.png','3,440,000'),
+	(1,'Asus Motherboard PRIME B550M-A','مادربرد ایسوس مدل PRIME B550M-A','Asus',128,4,4600,'AM4','B550','microATX',4,2,4,'motherboard/Asus-B550-Show.png','motherboard/Asus-B550-Small.png','3,440,000'),
 	(2,'Biostar Motherboard B550T-SILVER','مادربرد بایوستار مدل B550T-SILVER','Biostar',32,4,2900,'AM4','B550','microATX',2,1,4,'motherboard/Biostasr-B550-Show.png','motherboard/Biostasr-B550-Small.png','3,380,000'),
 	(3,'Biostar Motherboard B250MHC','مادربرد بایوستار مدل B250MHC','Biostar',32,4,2133,'LGA-1151','B250','microATX',2,0,4,'motherboard/Biostasr-B250-Show.png','motherboard/Biostasr-B250-Small.png','2,197,000'),
 	(4,'MSI MotherBoard H510 Pro-E','مادربرد ام اس آی مدل H510M PRO-E','MSI',64,4,2133,'LGA-1200','H510','microATX',2,0,4,'motherboard/Msi-H510-Show.png','motherboard/Msi-H510-Small.png','2,170,000'),

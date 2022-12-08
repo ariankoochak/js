@@ -4,6 +4,7 @@
         start: function(cnfg){
             this.config = cnfg;
             this.buttonEvents();
+            this.addSubmit();
         },
 
         buttonEvents: function(){
@@ -23,12 +24,44 @@
             })
         },
 
+        sendData : function(url){
+            const that = this;
+            $.post(url,function(res){
+                that.getData(that.config.nowInput,(res,state)=>{that.renderData(res,state)});
+            })
+        },
+
+        deleteData : function(url){
+            const that = this;
+            $.ajax({
+                url: url,
+                type: 'DELETE',
+                success: function () {
+                    that.getData(that.config.nowInput, (res, state) => { that.renderData(res, state) });
+                }
+            });
+        },
+
+        editData:function(url){
+            const that = this;
+            $.ajax({
+                url: url,
+                type: 'PUT',
+                success: function () {
+                    that.getData(that.config.nowInput, (res, state) => { that.renderData(res, state) });
+                }
+            });
+        },
+
         renderData:function(datas,state){
+            this.config.nowInput = state;
             const that = this;
             let template = datas.map(data=>{
                 return that.prepareTemplate(state,data);
             }).join("");
             $(this.config.root).html(template);
+            this.deleteSumbit();
+            this.editSubmit();
         },
         
         prepareTemplate : function(state,data){
@@ -52,18 +85,18 @@
                     `);
                         return `<tr>
                         <td>${data.id}</td>
-                        <td>${data.fa_name}</td>
-                        <td>${data.en_name}</td>
-                        <td>${data.company}</td>
-                        <td>${data.cpu_socket}</td>
-                        <td>${data.benchmark}</td>
-                        <td>${data.haveGPU}</td>
-                        <td>${data.showIMG}</td>
-                        <td>${data.smallIMG}</td>
-                        <td>${data.price}</td>
+                        <td aria-label="fa_name">${data.fa_name}</td>
+                        <td aria-label="en_name">${data.en_name}</td>
+                        <td aria-label="company">${data.company}</td>
+                        <td aria-label="cpu_socket">${data.cpu_socket}</td>
+                        <td aria-label="benchmark">${data.benchmark}</td>
+                        <td aria-label="haveGPU">${data.haveGPU}</td>
+                        <td aria-label="showIMG">${data.showIMG}</td>
+                        <td aria-label="smallIMG">${data.smallIMG}</td>
+                        <td aria-label="price">${data.price}</td>
                         <td>
-                            <button class="btn btn-info btn-sm" >Edit</button>
-                            <button class="btn btn-danger btn-sm">Delete</button>
+                            <button why="edit" class="btn btn-info btn-sm" >Edit</button>
+                            <button why="delete" class="btn btn-danger btn-sm">Delete</button>
                         </td>
                     </tr>`;
                 case "motherBoard":
@@ -103,8 +136,8 @@
                         <td>${data.smallIMG}</td>
                         <td>${data.price}</td>
                         <td>
-                            <button class="btn btn-info btn-sm" >Edit</button>
-                            <button class="btn btn-danger btn-sm">Delete</button>
+                            <button why="edit" class="btn btn-info btn-sm" >Edit</button>
+                            <button class="btn btn-danger btn-sm" why="delete">Delete</button>
                         </td>
                     </tr>`;
                 case "gpu":
@@ -145,8 +178,8 @@
                         <td>${data.smallIMG}</td>
                         <td>${data.price}</td>
                         <td>
-                            <button class="btn btn-info btn-sm" >Edit</button>
-                            <button class="btn btn-danger btn-sm">Delete</button>
+                            <button why="edit" class="btn btn-info btn-sm" >Edit</button>
+                            <button class="btn btn-danger btn-sm" why="delete">Delete</button>
                         </td>
                     </tr>`;
                 case "case":
@@ -179,8 +212,8 @@
                         <td>${data.smallIMG}</td>
                         <td>${data.price}</td>
                         <td>
-                            <button class="btn btn-info btn-sm" >Edit</button>
-                            <button class="btn btn-danger btn-sm">Delete</button>
+                            <button why="edit" class="btn btn-info btn-sm" >Edit</button>
+                            <button class="btn btn-danger btn-sm" why="delete">Delete</button>
                         </td>
                     </tr>`;
                 case "ram":
@@ -213,8 +246,8 @@
                         <td>${data.smallIMG}</td>
                         <td>${data.price}</td>
                         <td>
-                            <button class="btn btn-info btn-sm" >Edit</button>
-                            <button class="btn btn-danger btn-sm">Delete</button>
+                            <button why="edit" class="btn btn-info btn-sm" >Edit</button>
+                            <button class="btn btn-danger btn-sm" why="delete">Delete</button>
                         </td>
                     </tr>`;
                 case "ssd": 
@@ -241,8 +274,8 @@
                         <td>${data.smallIMG}</td>
                         <td>${data.price}</td>
                         <td>
-                            <button class="btn btn-info btn-sm" >Edit</button>
-                            <button class="btn btn-danger btn-sm">Delete</button>
+                            <button why="edit" class="btn btn-info btn-sm" >Edit</button>
+                            <button class="btn btn-danger btn-sm" why="delete">Delete</button>
                         </td>
                     </tr>`;
                 case "hdd":
@@ -271,8 +304,8 @@
                         <td>${data.smallIMG}</td>
                         <td>${data.price}</td>
                         <td>
-                            <button class="btn btn-info btn-sm" >Edit</button>
-                            <button class="btn btn-danger btn-sm">Delete</button>
+                            <button why="edit" class="btn btn-info btn-sm" >Edit</button>
+                            <button class="btn btn-danger btn-sm" why="delete">Delete</button>
                         </td>
                     </tr>`;
                 case "power":
@@ -303,43 +336,44 @@
                         <td>${data.smallIMG}</td>
                         <td>${data.price}</td>
                         <td>
-                            <button class="btn btn-info btn-sm" >Edit</button>
-                            <button class="btn btn-danger btn-sm">Delete</button>
+                            <button why="edit" class="btn btn-info btn-sm" >Edit</button>
+                            <button class="btn btn-danger btn-sm" why="delete">Delete</button>
                         </td>
                     </tr>`;
             }
         },
+
         changeModalbody: function (state) {
             switch(state){
                 case "cpu":
                     $(this.config.modalBody).html(`
                         <div class="row">
                             <div class="col-6 my-2">
-                                <input type="text" id="add-name" class="form-control" placeholder="Farsi Name" aria-label="Full Name">
+                                <input type="text" input="get" class="form-control" placeholder="Farsi Name" aria-label="fa_name">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="text" id="add-email" class="form-control" placeholder="English Name" aria-label="Email">
+                                <input type="text" input="get" class="form-control" placeholder="English Name" aria-label="en_name">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="text" id="add-age" class="form-control" placeholder="company" aria-label="Age">
+                                <input type="text" input="get" class="form-control" placeholder="company" aria-label="company">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="text" id="add-course" class="form-control" placeholder="socket" aria-label="Course">
+                                <input type="text" input="get"" class="form-control" placeholder="socket" aria-label="cpu_socket">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="number" id="add-course" class="form-control" placeholder="is have GPU(0 or 1)" aria-label="Course">
+                                <input type="number" input="get" class="form-control" placeholder="is have GPU(0 or 1)" aria-label="haveGPU">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="text" id="add-course" class="form-control" placeholder="benchmark" aria-label="Course">
+                                <input type="text" input="get" class="form-control" placeholder="benchmark" aria-label="benchmark">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="text" id="add-course" class="form-control" placeholder="show image" aria-label="Course">
+                                <input type="text" input="get" class="form-control" placeholder="show image" aria-label="showIMG">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="text" id="add-course" class="form-control" placeholder="small image" aria-label="Course">
+                                <input type="text" input="get" class="form-control" placeholder="small image" aria-label="smallIMG">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="text" id="add-course" class="form-control" placeholder="price" aria-label="Course">
+                                <input type="text" input="get" class="form-control" placeholder="price" aria-label="price">
                             </div>
                         </div>
                     `);
@@ -348,49 +382,49 @@
                     $(this.config.modalBody).html(`
                         <div class="row">
                             <div class="col-6 my-2">
-                                <input type="text" id="add-name" class="form-control" placeholder="Farsi Name" aria-label="Full Name">
+                                <input type="text" input="get" class="form-control" placeholder="Farsi Name" aria-label="fa_name">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="text" id="add-email" class="form-control" placeholder="English Name" aria-label="Email">
+                                <input type="text" input="get" class="form-control" placeholder="English Name" aria-label="en_name">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="text" id="add-age" class="form-control" placeholder="company" aria-label="Age">
+                                <input type="text" input="get" class="form-control" placeholder="company" aria-label="company">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="number" id="add-course" class="form-control" placeholder="ram support count" aria-label="Course">
+                                <input type="number" input="get" class="form-control" placeholder="ram support count" aria-label="ramSupportCount">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="number" id="add-course" class="form-control" placeholder="ramtypes" aria-label="Course">
+                                <input type="number" input="get" class="form-control" placeholder="ramtypes" aria-label="ramTypes">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="number" id="add-course" class="form-control" placeholder="ramFrequency" aria-label="Course">
+                                <input type="number" input="get" class="form-control" placeholder="ramFrequency" aria-label="ramFrequency">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="text" id="add-course" class="form-control" placeholder="cpu socket" aria-label="Course">
+                                <input type="text" input="get" class="form-control" placeholder="cpu socket" aria-label="cpuSocket">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="text" id="add-course" class="form-control" placeholder="chipset" aria-label="Course">
+                                <input type="text" input="get" class="form-control" placeholder="chipset" aria-label="chipset">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="text" id="add-course" class="form-control" placeholder="from factor" aria-label="Course">
+                                <input type="text" input="get" class="form-control" placeholder="from factor" aria-label="formFactor">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="number" id="add-course" class="form-control" placeholder="ram slut num" aria-label="Course">
+                                <input type="number" input="get" class="form-control" placeholder="ram slut num" aria-label="ramSluts">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="number" id="add-course" class="form-control" placeholder="m2 slut num" aria-label="Course">
+                                <input type="number" input="get" class="form-control" placeholder="m2 slut num" aria-label="m2Sluts">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="number" id="add-course" class="form-control" placeholder="motherboard sata port num" aria-label="Course">
+                                <input type="number" input="get" class="form-control" placeholder="motherboard sata port num" aria-label="MBsataNum">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="text" id="add-course" class="form-control" placeholder="show image" aria-label="Course">
+                                <input type="text" input="get" class="form-control" placeholder="show image" aria-label="showIMG">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="text" id="add-course" class="form-control" placeholder="small image" aria-label="Course">
+                                <input type="text" input="get" class="form-control" placeholder="small image" aria-label="smallIMG">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="text" id="add-course" class="form-control" placeholder="price" aria-label="Course">
+                                <input type="text" input="get" class="form-control" placeholder="price" aria-label="price">
                             </div>
                         </div>
                     `);
@@ -399,46 +433,46 @@
                     $(this.config.modalBody).html(`
                         <div class="row">
                             <div class="col-6 my-2">
-                                <input type="text" id="add-name" class="form-control" placeholder="Farsi Name" aria-label="Full Name">
+                                <input type="text" input="get" class="form-control" placeholder="Farsi Name" aria-label="fa_name">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="text" id="add-email" class="form-control" placeholder="English Name" aria-label="Email">
+                                <input type="text" input="get" class="form-control" placeholder="English Name" aria-label="en_name">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="text" id="add-age" class="form-control" placeholder="company" aria-label="Age">
+                                <input type="text" input="get" class="form-control" placeholder="company" aria-label="company">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="text" id="add-course" class="form-control" placeholder="chipsetCompany" aria-label="Course">
+                                <input type="text" input="get" class="form-control" placeholder="chipsetCompany" aria-label="chipsetcompany">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="text" id="add-course" class="form-control" placeholder="chipset" aria-label="Course">
+                                <input type="text" input="get" class="form-control" placeholder="chipset" aria-label="chipset">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="number" id="add-course" class="form-control" placeholder="benchmark" aria-label="Course">
+                                <input type="number" input="get" class="form-control" placeholder="benchmark" aria-label="benchmark">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="number" id="add-course" class="form-control" placeholder="HDMI port num" aria-label="Course">
+                                <input type="number" input="get" class="form-control" placeholder="HDMI port num" aria-label="HDMIport">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="number" id="add-course" class="form-control" placeholder="VGA port num" aria-label="Course">
+                                <input type="number" input="get" class="form-control" placeholder="VGA port num" aria-label="VGAport">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="number" id="add-course" class="form-control" placeholder="DP port num" aria-label="Course">
+                                <input type="number" input="get" class="form-control" placeholder="DP port num" aria-label="DPport">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="number" id="add-course" class="form-control" placeholder="DG port num" aria-label="Course">
+                                <input type="number" input="get" class="form-control" placeholder="DG port num" aria-label="DGport">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="number" id="add-course" class="form-control" placeholder="gpu storage" aria-label="Course">
+                                <input type="number" input="get" class="form-control" placeholder="gpu storage" aria-label="gpuStorage">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="text" id="add-course" class="form-control" placeholder="show image" aria-label="Course">
+                                <input type="text" input="get" class="form-control" placeholder="show image" aria-label="showIMG">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="text" id="add-course" class="form-control" placeholder="small image" aria-label="Course">
+                                <input type="text" input="get" class="form-control" placeholder="small image" aria-label="smallIMG">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="text" id="add-course" class="form-control" placeholder="price" aria-label="Course">
+                                <input type="text" input="get" class="form-control" placeholder="price" aria-label="price">
                             </div>
                         </div>
                     `);
@@ -447,34 +481,34 @@
                     $(this.config.modalBody).html(`
                         <div class="row">
                             <div class="col-6 my-2">
-                                <input type="text" id="add-name" class="form-control" placeholder="Farsi Name" aria-label="Full Name">
+                                <input type="text" input="get" class="form-control" placeholder="Farsi Name" aria-label="fa_name">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="text" id="add-email" class="form-control" placeholder="English Name" aria-label="Email">
+                                <input type="text" input="get" class="form-control" placeholder="English Name" aria-label="en_name">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="text" id="add-age" class="form-control" placeholder="company" aria-label="Age">
+                                <input type="text" input="get" class="form-control" placeholder="company" aria-label="company">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="text" id="add-course" class="form-control" placeholder="case form" aria-label="Course">
+                                <input type="text" input="get" class="form-control" placeholder="case form" aria-label="caseForm">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="text" id="add-course" class="form-control" placeholder="case max form factor" aria-label="Course">
+                                <input type="text" input="get" class="form-control" placeholder="case max form factor" aria-label="caseBiggerFormFactorSupport">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="number" id="add-course" class="form-control" placeholder="fansnum" aria-label="Course">
+                                <input type="number" input="get" class="form-control" placeholder="fansnum" aria-label="fansNum">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="number" id="add-course" class="form-control" placeholder="have intelTAC(1 or 0)" aria-label="Course">
+                                <input type="number" input="get" class="form-control" placeholder="have intelTAC(1 or 0)" aria-label="intelTAC">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="text" id="add-course" class="form-control" placeholder="show image" aria-label="Course">
+                                <input type="text" input="get" class="form-control" placeholder="show image" aria-label="showIMG">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="text" id="add-course" class="form-control" placeholder="small image" aria-label="Course">
+                                <input type="text" input="get" class="form-control" placeholder="small image" aria-label="smallIMG">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="text" id="add-course" class="form-control" placeholder="price" aria-label="Course">
+                                <input type="text" input="get" class="form-control" placeholder="price" aria-label="price">
                             </div>
                         </div>
                     `);
@@ -483,34 +517,34 @@
                     $(this.config.modalBody).html(`
                         <div class="row">
                             <div class="col-6 my-2">
-                                <input type="text" id="add-name" class="form-control" placeholder="Farsi Name" aria-label="Full Name">
+                                <input type="text" input="get" class="form-control" placeholder="Farsi Name" aria-label="fa_name">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="text" id="add-email" class="form-control" placeholder="English Name" aria-label="Email">
+                                <input type="text" input="get" class="form-control" placeholder="English Name" aria-label="en_name">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="text" id="add-age" class="form-control" placeholder="company" aria-label="Age">
+                                <input type="text" input="get" class="form-control" placeholder="company" aria-label="company">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="number" id="add-course" class="form-control" placeholder="ram frequency" aria-label="Course">
+                                <input type="number" input="get" class="form-control" placeholder="ram frequency" aria-label="ramFrenquency">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="mumber" id="add-course" class="form-control" placeholder="ram type" aria-label="Course">
+                                <input type="mumber" input="get" class="form-control" placeholder="ram type" aria-label="ramType">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="number" id="add-course" class="form-control" placeholder="ram all storage" aria-label="Course">
+                                <input type="number" input="get" class="form-control" placeholder="ram all storage" aria-label="ramAllStorage">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="number" id="add-course" class="form-control" placeholder="ram sluts num" aria-label="Course">
+                                <input type="number" input="get" class="form-control" placeholder="ram sluts num" aria-label="ramSluts">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="text" id="add-course" class="form-control" placeholder="show image" aria-label="Course">
+                                <input type="text" input="get" class="form-control" placeholder="show image" aria-label="showIMG">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="text" id="add-course" class="form-control" placeholder="small image" aria-label="Course">
+                                <input type="text" input="get" class="form-control" placeholder="small image" aria-label="smallIMG">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="text" id="add-course" class="form-control" placeholder="price" aria-label="Course">
+                                <input type="text" input="get" class="form-control" placeholder="price" aria-label="price">
                             </div>
                         </div>
                     `);
@@ -519,25 +553,25 @@
                     $(this.config.modalBody).html(`
                         <div class="row">
                             <div class="col-6 my-2">
-                                <input type="text" id="add-name" class="form-control" placeholder="Farsi Name" aria-label="Full Name">
+                                <input type="text" input="get" class="form-control" placeholder="Farsi Name" aria-label="fa_name">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="text" id="add-email" class="form-control" placeholder="English Name" aria-label="Email">
+                                <input type="text" input="get" class="form-control" placeholder="English Name" aria-label="en_name">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="text" id="add-age" class="form-control" placeholder="company" aria-label="Age">
+                                <input type="text" input="get" class="form-control" placeholder="company" aria-label="company">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="number" id="add-course" class="form-control" placeholder="ssd storage" aria-label="Course">
+                                <input type="number" input="get" class="form-control" placeholder="ssd storage" aria-label="ssdStorage">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="mumber" id="add-course" class="form-control" placeholder="ssd type" aria-label="Course">
+                                <input type="number" input="get" class="form-control" placeholder="ssd type" aria-label="ssdType">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="text" id="add-course" class="form-control" placeholder="small image" aria-label="Course">
+                                <input type="text" input="get" class="form-control" placeholder="small image" aria-label="smallIMG">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="text" id="add-course" class="form-control" placeholder="price" aria-label="Course">
+                                <input type="text" input="get" class="form-control" placeholder="price" aria-label="price">
                             </div>
                         </div>
                     `);
@@ -546,34 +580,142 @@
                     $(this.config.modalBody).html(`
                         <div class="row">
                             <div class="col-6 my-2">
-                                <input type="text" id="add-name" class="form-control" placeholder="Farsi Name" aria-label="Full Name">
+                                <input type="text" input="get" class="form-control" placeholder="Farsi Name" aria-label="fa_name">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="text" id="add-email" class="form-control" placeholder="English Name" aria-label="Email">
+                                <input type="text" input="get" class="form-control" placeholder="English Name" aria-label="en_name">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="text" id="add-age" class="form-control" placeholder="company" aria-label="Age">
+                                <input type="text" input="get" class="form-control" placeholder="company" aria-label="company">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="number" id="add-course" class="form-control" placeholder="hdd storage" aria-label="Course">
+                                <input type="number" input="get" class="form-control" placeholder="hdd storage" aria-label="hddStorage">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="mumber" id="add-course" class="form-control" placeholder="hdd type" aria-label="Course">
+                                <input type="text" input="get" class="form-control" placeholder="hdd type" aria-label="hddType">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="mumber" id="add-course" class="form-control" placeholder="hdd form" aria-label="Course">
+                                <input type="text" input="get" class="form-control" placeholder="hdd form" aria-label="hddForm">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="text" id="add-course" class="form-control" placeholder="small image" aria-label="Course">
+                                <input type="text" input="get" class="form-control" placeholder="small image" aria-label="smallIMG">
                             </div>
                             <div class="col-6 my-2">
-                                <input type="text" id="add-course" class="form-control" placeholder="price" aria-label="Course">
+                                <input type="text" input="get" class="form-control" placeholder="price" aria-label="price">
+                            </div>
+                        </div>
+                    `);
+                    break;
+                case "power":
+                    $(this.config.modalBody).html(`
+                        <div class="row">
+                            <div class="col-6 my-2">
+                                <input type="text" input="get" class="form-control" placeholder="Farsi Name" aria-label="fa_name">
+                            </div>
+                            <div class="col-6 my-2">
+                                <input type="text" input="get" class="form-control" placeholder="English Name" aria-label="en_name">
+                            </div>
+                            <div class="col-6 my-2">
+                                <input type="text" input="get" class="form-control" placeholder="company" aria-label="company">
+                            </div>
+                            <div class="col-6 my-2">
+                                <input type="number" input="get" class="form-control" placeholder="watt" aria-label="watt">
+                            </div>
+                            <div class="col-6 my-2">
+                                <input type="text" input="get" class="form-control" placeholder="module" aria-label="module">
+                            </div>
+                            <div class="col-6 my-2">
+                                <input type="text" input="get" class="form-control" placeholder="form" aria-label="form">
+                            </div>
+                            <div class="col-6 my-2">
+                                <input type="number" input="get" class="form-control" placeholder="sata connector num" aria-label="powerSataConnectorNum">
+                            </div>
+                            <div class="col-6 my-2">
+                                <input type="text" input="get" class="form-control" placeholder="small image" aria-label="smallIMG">
+                            </div>
+                            <div class="col-6 my-2">
+                                <input type="text" input="get" class="form-control" placeholder="price" aria-label="price">
                             </div>
                         </div>
                     `);
                     break;
                 }
         },
+
+        addSubmit : function(){
+            $(this.config.sumbitAddButton).on("click",()=>(this.prepareUrl()));
+        },
+
+        deleteSumbit : function(){
+            const that = this;
+            $('[why=delete]').on('click',function(){
+                let id = $(this).parent().parent().children().html();
+                that.deleteData(`http://localhost:3000/${that.config.nowInput}/${id}`);
+            })
+        },
+
+        editSubmit:function(){
+            const that = this;
+            $('[why=edit]').on('click',function(){
+                that.prepareModalForEdit($(this).parent().parent().children())
+            })
+        },
+
+        prepareModalForEdit:function(data){
+            let id = 0;
+            data.each(function(index,td){
+                if ($(td).attr('aria-label')){
+                    $(`input[aria-label=${$(td).attr('aria-label')}]`).val($(td).html());
+                }
+            })
+            $(this.config.sumbitAddButton).html("Edit");
+            $(this.config.sumbitAddButton).attr("why","edit");
+            $(this.config.modalTitle).html("Edit data");
+            $(this.config.addButton).click();
+            this.submiteditData(data.parent().children().html());
+        },
+
+        submiteditData:function(id){
+            const that = this;
+            $("[why=edit]").on('click',function(){
+                let url = `http://localhost:3000/${that.config.nowInput}/?`;
+                let inputs = $('[input=get]');
+                url += `id=${id}&`;
+                inputs.each((index, input) => {
+                    url += `${$(input).attr('aria-label')}=${input.value}&`;
+                });
+                that.editData(url);
+                that.addDataClickEvent();
+                $('#close-modal').click();
+            })
+        },
+
+        addDataClickEvent : function(){
+            const that = this;
+            $(this.config.addButton).on('click',function(){
+                $('input').each(function(index,input){
+                    $(input).val("");
+                });
+                $(that.config.sumbitAddButton).html("Add");
+                $(that.config.sumbitAddButton).attr("why", "submit");
+                $(that.config.modalTitle).html("Add data");
+            })
+        },
+
+        prepareUrl : function(){
+            if($(this.config.submitButtons).attr('why') === 'submit'){
+                let url = `http://localhost:3000/${this.config.nowInput}/?`;
+                let inputs = $('[input=get]');
+                inputs.each((index, input) => {
+                    url += `${$(input).attr('aria-label')}=${input.value}&`;
+                });
+                $('#close-modal').click();
+                this.sendData(url);
+            }
+        },
+
+
+        
     }
 
     ROOT.start({
@@ -582,8 +724,11 @@
         submitButtons : $('[why=submit]'),
         root: $('#root'),
         addButton : $('[why=addData]'),
+        sumbitAddButton: $('[why=submit]'),
         modalBody : $('.modal-body'),
         listTitle: $('thead'),
+        modalTitle : $('h1'),
+        nowInput : '',
     })
 
 })(jQuery);

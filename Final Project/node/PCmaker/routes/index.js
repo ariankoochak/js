@@ -22,6 +22,8 @@ const { threadId } = require('../bin/database.js');
                 this.reqTest();
                 this.PrepareReq(this.config[url], "GET");
                 this.PrepareReq(this.config[url]+'/:id', "GET");
+                this.PrepareReq(this.config[url] + '/:id', "DELETE");
+                this.PrepareReq(this.config[url], "PUT");
                 this.PrepareReq(this.config[url], "POST");
             }
         },
@@ -60,6 +62,27 @@ const { threadId } = require('../bin/database.js');
                         }
                         that.connectToServer(reqQuery, result => res.send(result));
                     });
+                    break;
+                case "DELETE":
+                    router.delete(url,function(req,res,next){
+                        that.connectToServer(`DELETE FROM ${that.findPiece(url)} WHERE id=${req.params.id}`,result=>res.send(result));
+                    })
+                    break;
+                case "PUT":
+                    router.put(url, function (req, res, next) {
+                        let reqQuery = `UPDATE ${that.findPiece(url)} SET `;
+                        let obj = req.query;
+                        for (let key in obj) {
+                            if(key !== "id"){
+                                if (key !== 'price')
+                                    reqQuery += `${key} = '${obj[key]}',`
+                                else
+                                    reqQuery += `${key} = '${obj[key]}' `
+                            }
+                        }
+                        reqQuery += `WHERE id=${req.query.id}`;
+                        that.connectToServer(reqQuery, result => res.send(result));
+                    })
                     break;
             }
         },

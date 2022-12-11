@@ -1,0 +1,21 @@
+.product{
+    border: 5px solid red;
+    cursor: pointer;
+    margin : 20px;
+}
+
+.selected-product{
+    border: 7px solid blue;
+}
+
+img{
+    width: 20%;
+}
+
+#back{
+    display: none;
+}
+
+#next{
+    display:none;
+}

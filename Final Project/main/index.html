@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <script src="../ref_source/jQuery.js"></script>
+    <script src="./modes.js"></script>
+    <script src="./main.js" defer></script>
+    <title>PC Maker</title>
+</head>
+<body>
+    <div id="product-root">
+
+    </div>
+    <button id="back">back</button>
+    <button id="add-to-cart">add to cart</button>
+    <button id="next">next</button>
+    <div id="now-price">0</div>
+</body>
+<script id="product-template" type="product/x-handlebars-template">
+        <div class="product" id="{{id}}">
+            <h2>{{en_name}}</h2>
+            <img src="../node/PCmaker/images/{{smallIMG}}">
+            <h3 class="price">{{price}}</h3>
+        </div>
+    </script>
+</html>

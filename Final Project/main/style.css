@@ -8,6 +8,10 @@
     border: 7px solid blue;
 }
 
+.disable-selected-product{
+    border: 5px solid grey;
+}
+
 img{
     width: 20%;
 }
@@ -18,4 +22,39 @@ img{
 
 #next{
     display:none;
+}
+
+#ghost{
+    position: relative;
+    display: none;
+}
+
+#show-case{
+    width: 50%;
+    position: absolute;
+}
+
+#show-motherboard{
+    width: 23%;
+    position: absolute;
+}
+
+
+#show-cpu {
+    width: 5%;
+    position: absolute;
+}
+
+#show-gpu{
+    width: 24%;
+    position: absolute;
+}
+
+#show-ram {
+    width: 1.5%;
+    position: absolute;
+}
+
+#codition{
+    display: none;
 }

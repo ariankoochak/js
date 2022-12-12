@@ -19,12 +19,15 @@
     <button id="add-to-cart">add to cart</button>
     <button id="next">next</button>
     <div id="now-price">0</div>
+    <div id="show-pic"></div>
 </body>
 <script id="product-template" type="product/x-handlebars-template">
         <div class="product" id="{{id}}">
             <h2>{{en_name}}</h2>
             <img src="../node/PCmaker/images/{{smallIMG}}">
+            <img id="ghost" src="../node/PCmaker/images/{{showIMG}}">
+            <p id="condition" conditionMB="{{cpuSocket}}" conditionCPU="{{cpu_socket}}"></p>
             <h3 class="price">{{price}}</h3>
         </div>
-    </script>
+</script>
 </html>

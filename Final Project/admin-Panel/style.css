@@ -30,6 +30,12 @@
     display: none;
 }
 
-[why=addData]{
+[why=add-data]{
     display: none;
+}
+
+
+.category{
+    display: flex;
+    justify-content: center;
 }

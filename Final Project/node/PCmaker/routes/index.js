@@ -72,7 +72,7 @@ const { threadId } = require('../bin/database.js');
                     router.put(url, function (req, res, next) {
                         let reqQuery = `UPDATE ${that.findPiece(url)} SET `;
                         let obj = req.query;
-                        for (let key in obj) {
+                        for (let key in obj){
                             if(key !== "id"){
                                 if (key !== 'price')
                                     reqQuery += `${key} = '${obj[key]}',`

@@ -12,55 +12,59 @@
     <title>Admin Panel</title>
 </head>
 <body>
-    <button id="cpu" state="cpu" why="state" class="btn btn-primary">cpu</button>
-    <button id="mother-board" state="motherBoard" why="state" class="btn btn-primary">motherBoard</button>
-    <button id="gpu" state="gpu" why="state" class="btn btn-primary">gpu</button>
-    <button id="case" state="case" why="state" class="btn btn-primary">case</button>
-    <button id="ram" state="ram" why="state" class="btn btn-primary">ram</button>
-    <button id="ssd" state="ssd" why="state" class="btn btn-primary">ssd</button>
-    <button id="hdd" state="hdd" why="state" class="btn btn-primary">hdd</button>
-    <button id="power" state="power" why="state" class="btn btn-primary">power</button>
-
-    <!-- ADD student Modal -->
-    <br><br><button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modal" why="addData">Add Data</button>
+    <div class="category">
+        <div>
+            <button id="cpu" state="cpu" why="state" class="btn btn-primary">cpu</button>
+            <button id="motherboard" state="motherboard" why="state" class="btn btn-primary">motherBoard</button>
+            <button id="gpu" state="gpu" why="state" class="btn btn-primary">gpu</button>
+            <button id="case" state="case" why="state" class="btn btn-primary">case</button>
+            <button id="ram" state="ram" why="state" class="btn btn-primary">ram</button>
+            <button id="ssd" state="ssd" why="state" class="btn btn-primary">ssd</button>
+            <button id="hdd" state="hdd" why="state" class="btn btn-primary">hdd</button>
+            <button id="power" state="power" why="state" class="btn btn-primary">power</button>
+        </div>
+    </div>
+    <button class="btn btn-warning" why="add-data" data-bs-toggle="modal" data-bs-target="#modal" state="none">Add Data</button>
+    <!-- add data modal -->
     <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5">Add Data</h1>
+                    <h1 class="modal-title fs-5" id="modal-title">Add Data</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-6 my-2">
-                            <input type="text" id="add-name" class="form-control" placeholder="Full Name"
+                            <input type="text" class="form-control" placeholder="Full Name"
                                 aria-label="Full Name" autofocus>
                         </div>
                         <div class="col-6 my-2">
-                            <input type="text" id="add-email" class="form-control" placeholder="Email" aria-label="Email">
+                            <input type="text" class="form-control" placeholder="Email" aria-label="Email">
                         </div>
                         <div class="col-6 my-2">
-                            <input type="number" id="add-age" class="form-control" placeholder="Age" aria-label="Age">
+                            <input type="number" class="form-control" placeholder="Age" aria-label="Age">
                         </div>
                         <div class="col-6 my-2">
-                            <input type="text" id="add-course" class="form-control" placeholder="Course"
+                            <input type="text" class="form-control" placeholder="Course"
                                 aria-label="Course">
                         </div>
                         <div class="col-6 my-2">
-                            <input type="text" id="add-course" class="form-control" placeholder="Course" aria-label="Course">
+                            <input type="text" class="form-control" placeholder="Course" aria-label="Course">
                         </div>
                         <div class="col-6 my-2">
-                            <input type="text" id="add-course" class="form-control" placeholder="Course" aria-label="Course">
+                            <input type="text" class="form-control" placeholder="Course" aria-label="Course">
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="close-modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="close-modal" why="close">Close</button>
                     <button type="button" class="btn btn-primary" id="add-btn" why="submit">Add</button>
                 </div>
             </div>
         </div>
     </div>
+    
 
     <div id="datas">
             <table class="table table-striped">

@@ -8,6 +8,7 @@ let showArray = [];
             this.addToCartClickEvent();
             this.backButtonClickEvent();
             this.nextButtonClickEvent();
+            this.cartButtonEvent();
         },
 
         nextButtonClickEvent : function(){
@@ -21,9 +22,14 @@ let showArray = [];
 
         checkForNext: function () {
             if (nowStep == 5 || nowStep == 6)
-                this.config.nextButton.css('display', 'block');
+                this.config.nextButton.css('display', 'inline-block');
             else
                 this.config.nextButton.css('display', 'none');
+
+            if(nowStep == 7)
+                this.config.addToCartButton.html('finish');
+            else
+                this.config.addToCartButton.html('Add To Cart');
         },
 
         productClickEvent : function(){
@@ -43,7 +49,7 @@ let showArray = [];
             $(this.config.targetProduct).removeClass('selected-product');
             $(data).addClass('selected-product');
             this.config.targetProduct = data;
-            this.showPrice($(`#${$(data).attr('id')} > .price`));
+            this.showPrice($(`#${$(data).attr('id')} > .TitleCase > .price`));
         },
 
         showPrice: function (nonSubmitPrice) {
@@ -67,10 +73,10 @@ let showArray = [];
                         that.initializeSteps();
                     }
                     else{
-                        console.log("finish!");
+                        that.exportPage();
                     }
                     if (nowStep > 0)
-                        that.config.backButton.css('display', 'block');
+                        that.config.backButton.css('display', 'inline-block');
                     that.checkForNext();
                 }
             })
@@ -78,12 +84,13 @@ let showArray = [];
 
         prepareMode : function(){
             productSelectedId = $(this.config.targetProduct).attr('id');
+            MODES[nowStep].ProductOBJ = $(this.config.targetProduct);
             MODES[nowStep].ProductSelectedID = +productSelectedId;
-            MODES[nowStep].price = this.unParseNumber($(`#${productSelectedId} > .price`).html());
+            MODES[nowStep].price = this.unParseNumber($(`#${productSelectedId} > .TitleCase > .price`).html());
         },
 
         prepareCart : function(){
-            let price = this.unParseNumber($(`#${productSelectedId} > .price`).html());
+            let price = this.unParseNumber($(`#${productSelectedId} > .TitleCase > .price`).html());
             cart[nowStep + 1] = price;
             cart[0] += price;
         },
@@ -98,6 +105,7 @@ let showArray = [];
                 if (nowStep == 0)
                     this.config.backButton.css('display', 'none');
                 this.checkForNext();
+                this.deleteShowStep();
             })
         },
 
@@ -115,7 +123,7 @@ let showArray = [];
                 return rendering(data);
             }).join("");
             this.config.productRoot.html(template);
-            this.config.products = $('.product');
+            this.config.products = $('.Cart');
             this.productClickEvent();
             if(MODES[nowStep].ProductSelectedID != 0){
                 let prevProduct = this.config.productRoot.children().get().find(function (product) {
@@ -167,13 +175,13 @@ let showArray = [];
                     $(this.config.showImage).html(`<img id="show-case" src = "${imgSrc}">`);
                     break;
                 case 1:
-                    if($('#show-motherboard')){
+                    if ($('#show-motherboard')){
                         $('#show-motherboard').remove();
                     }
                     imgSrc = $(`#${$(this.config.targetProduct).attr('id')} > #ghost`).attr('src');
                     $(this.config.showImage).append(`<img id="show-motherboard" src = "${imgSrc}">`);
-                    $("#show-motherboard").css('margin-top','8%');
-                    $("#show-motherboard").css('margin-left','4%');
+                    $("#show-motherboard").css('margin-top','-3%');
+                    $("#show-motherboard").css('margin-left','-7%');
                     break;
                 case 2:
                     if($('#show-cpu')){
@@ -181,8 +189,8 @@ let showArray = [];
                     }
                     imgSrc = $(`#${$(this.config.targetProduct).attr('id')} > #ghost`).attr('src');
                     $(this.config.showImage).append(`<img id="show-cpu" src = "${imgSrc}">`);
-                    $("#show-cpu").css('margin-top','14%');
-                    $("#show-cpu").css('margin-left','14%');
+                    $("#show-cpu").css('margin-top','-5%');
+                    $("#show-cpu").css('margin-left','-6%');
                     break;
                 case 3:
                     if($('#show-gpu')){
@@ -190,8 +198,8 @@ let showArray = [];
                     }
                     imgSrc = $(`#${$(this.config.targetProduct).attr('id')} > #ghost`).attr('src');
                     $(this.config.showImage).append(`<img id="show-gpu" src = "${imgSrc}">`);
-                    $("#show-gpu").css('margin-top','15%');
-                    $("#show-gpu").css('margin-left','4%');
+                    $("#show-gpu").css('margin-top','3%');
+                    $("#show-gpu").css('margin-left','-7%');
                     break;
                 case 4:
                     if($('#show-ram')){
@@ -199,15 +207,56 @@ let showArray = [];
                     }
                     imgSrc = $(`#${$(this.config.targetProduct).attr('id')} > #ghost`).attr('src');
                     $(this.config.showImage).append(`<img id="show-ram" src = "${imgSrc}">`);
-                    $("#show-ram").css('margin-top','9%');
-                    $("#show-ram").css('margin-left','22%');
+                    $("#show-ram").css('margin-top','-4%');
+                    $("#show-ram").css('margin-left','-1%');
                     break;
             }
         },
+
+        deleteShowStep : function(){
+            switch (nowStep) {
+                case 0:
+                    $('#show-motherboard').remove();
+                    break;
+                case 1:
+                    $('#show-cpu').remove();
+                    break;
+                case 2:
+                    $('#show-gpu').remove();
+                    break;
+                case 3:
+                    $('#show-ram').remove();
+                    break;
+            }
+        },
+        exportPage : function(){
+            console.log(MODES);
+            $('aside').remove();
+            $('section').remove();
+            let template = `<div class="export-container"><h1 class = 'export'>${this.parseNumber(cart[0])}T</h1>
+            <br><button class = 'buy'>Buy</button></div>`;
+            $('.all').append(template);
+            $('.buy').on('click',function(){
+                alert('تموم شد دیگه بیشتر از این نزدیم');
+            })
+        },
+
+        cartButtonEvent : function(){
+            this.config.cartButton.on('click',()=>{
+                console.log(MODES);
+                let template = MODES.map((mode, index)=>{
+                    if (mode.ProductSelectedID !== 0 && nowStep > index){
+                        let dom = mode.ProductOBJ;
+                        dom.removeClass('Cart');
+                        dom.addClass('product-cart');
+                        return dom.get()[0];
+                    }
+                })
+                console.log(template);
+                this.config.modalBody.html(template);
+            })
+        },
         
-        showGenerator : function(inp){
-            let template = 0;
-        }
     };
 
     ROOT.start({
@@ -221,6 +270,8 @@ let showArray = [];
         backButton : $('#back'),
         nextButton : $('#next'),
         showImage : $('#show-pic'),
+        modalBody : $(".modal-body"),
+        cartButton : $('#cart-button'),
     })
 
 })(jQuery, Handlebars);

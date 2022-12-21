@@ -16,11 +16,17 @@ div{
 }
 
 .get-started {
+    padding: 1rem 3rem;
+    font-size: 1.5rem;
+    border-radius: 20px;
     background-color: #29892D;
     border: none;
 }
 
 .admin-panel{
+    padding: 1rem 3rem;
+    font-size: 1.5rem;
+    border-radius: 20px;
     background-color: #141721;
     border: none;
 }

@@ -123,6 +123,7 @@ let showArray = [];
                 return rendering(data);
             }).join("");
             this.config.productRoot.html(template);
+            this.config.productTitle.html(MODES[nowStep].ProductTitle);
             this.config.products = $('.Cart');
             this.productClickEvent();
             if(MODES[nowStep].ProductSelectedID != 0){
@@ -272,6 +273,7 @@ let showArray = [];
         showImage : $('#show-pic'),
         modalBody : $(".modal-body"),
         cartButton : $('#cart-button'),
+        productTitle: $('#product-title'),
     })
 
 })(jQuery, Handlebars);

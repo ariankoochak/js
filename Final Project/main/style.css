@@ -248,6 +248,7 @@ border-radius: 17px;
 }
 
 #next , #back{
+    display: none;
     background: #44D62C;
     border: none;
     width: 40%;
